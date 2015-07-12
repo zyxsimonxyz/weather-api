@@ -1,0 +1,38 @@
+
+{
+    "response": {
+        "version":"0.1",
+        "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+        "features": {
+            "almanac": 1
+        }
+    }
+    ,
+    "almanac": {
+        "airport_code": "KTYS",
+        "temp_high": {
+            "normal": {
+                "F": "88",
+                "C": "31"
+            }
+            ,
+            "record": {
+                "F": "98",
+                "C": "36"
+            },
+            "recordyear": "1993"
+        },
+        "temp_low": {
+            "normal": {
+                "F": "69",
+                "C": "21"
+            }
+            ,
+            "record": {
+                "F": "55",
+                "C": "12"
+            },
+            "recordyear": "1972"
+        }
+    }
+}
