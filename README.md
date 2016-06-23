@@ -17,5 +17,8 @@ An iOS application is available in the **AutoCompleteAPI** project to
 demonstrate the autocomplete API. This app lists matching locations as the user
 types the name or zip code of a location.
 
+Note that JSON parsing is accomplished with the [SwiftyJSON][] library available on GitHub.
+
 [Weather API]: http://www.wunderground.com/weather/api/
 [Weather Underground]: http://www.wunderground.com
+[SwiftyJSON]: https://github.com/SwiftyJSON/SwiftyJSON
