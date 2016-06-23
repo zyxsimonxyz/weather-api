@@ -1,15 +1,21 @@
 # Weather API
 
-Swift code for parsing [Weather API](http://www.wunderground.com/weather/api/) data provided by the [Weather Underground](http://www.wunderground.com).
+Swift playgrounds are provided for the [Weather API][] features listed below.
+Each playground demonstrates parsing the JSON returned from the weather API for
+a particular data feature. All weather data is provided by the [Weather
+Underground][].
 
-## Documentation
+- alerts
+- almanac
+- astronomy
+- autocomplete
+- conditions
+- currenthurricane
+- forecast10day
 
-Please view the [Weather API Wiki](https://github.com/wigging/weather-api/wiki) for documentation about the API and references to the Swift code.
+An iOS application is available in the **AutoCompleteAPI** project to
+demonstrate the autocomplete API. This app lists matching locations as the user
+types the name or zip code of a location.
 
-## Playgrounds
-
-The playgrounds provide class models to represent the weather data. Each playground contains a JSON file of the data returned from the API for a particular feature.
-
-## Xcode Projects
-
-A simple Mac and iOS app demonstrate a HTTP request to the Weather API. The weater data is returned in JSON format.
+[Weather API]: http://www.wunderground.com/weather/api/
+[Weather Underground]: http://www.wunderground.com

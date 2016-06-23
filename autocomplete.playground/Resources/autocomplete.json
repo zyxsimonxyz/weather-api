@@ -1,0 +1,224 @@
+{
+    "RESULTS": [
+                {
+                "name": "San Francisco, California",
+                "type": "city",
+                "c": "US",
+                "zmw": "94101.1.99999",
+                "tz": "America/Los_Angeles",
+                "tzs": "PST",
+                "l": "/q/zmw:94101.1.99999",
+                "lat": "37.775009",
+                "lon": " -122.418259"
+                },
+                {
+                "name": "San Fernando del Valle de Catamarca, Argentina",
+                "type": "city",
+                "c": "AR",
+                "zmw": "00000.5.87222",
+                "tz": "America/Argentina/La_Rioja",
+                "tzs": "ART",
+                "l": "/q/zmw:00000.5.87222",
+                "lat": "-28.466667",
+                "lon": " -65.783333"
+                },
+                {
+                "name": "San Felipe de Puerto Plata, Dominican Republic",
+                "type": "city",
+                "c": "DO",
+                "zmw": "00000.11.78458",
+                "tz": "America/Santo_Domingo",
+                "tzs": "AST",
+                "l": "/q/zmw:00000.11.78458",
+                "lat": "19.799999",
+                "lon": " -70.683334"
+                },
+                {
+                "name": "San Fernando, Spain",
+                "type": "city",
+                "c": "ES",
+                "zmw": "00000.11.08449",
+                "tz": "Africa/Ceuta",
+                "tzs": "CET",
+                "l": "/q/zmw:00000.11.08449",
+                "lat": "36.466667",
+                "lon": " -6.200000"
+                },
+                {
+                "name": "San Fernando Apure, Venezuela",
+                "type": "city",
+                "c": "VE",
+                "zmw": "00000.8.80450",
+                "tz": "America/Caracas",
+                "tzs": "VET",
+                "l": "/q/zmw:00000.8.80450",
+                "lat": "7.896667",
+                "lon": " -67.467224"
+                },
+                {
+                "name": "San Felipe, Venezuela",
+                "type": "city",
+                "c": "VE",
+                "zmw": "00000.8.80479",
+                "tz": "America/Caracas",
+                "tzs": "VET",
+                "l": "/q/zmw:00000.8.80479",
+                "lat": "10.340555",
+                "lon": " -68.737221"
+                },
+                {
+                "name": "San Felipe, Chile",
+                "type": "city",
+                "c": "CL",
+                "zmw": "00000.16.85574",
+                "tz": "America/Santiago",
+                "tzs": "CLST",
+                "l": "/q/zmw:00000.16.85574",
+                "lat": "-32.750000",
+                "lon": " -70.733330"
+                },
+                {
+                "name": "San Francisco, Argentina",
+                "type": "city",
+                "c": "AR",
+                "zmw": "00000.6.87371",
+                "tz": "America/Cordoba",
+                "tzs": "ART",
+                "l": "/q/zmw:00000.6.87371",
+                "lat": "-31.433332",
+                "lon": " -62.083332"
+                },
+                {
+                "name": "San Francisco, Costa Rica",
+                "type": "city",
+                "c": "CR",
+                "zmw": "00000.52.WMRPV",
+                "tz": "America/Costa_Rica",
+                "tzs": "CST",
+                "l": "/q/zmw:00000.52.WMRPV",
+                "lat": "9.983334",
+                "lon": " -84.133331"
+                },
+                {
+                "name": "San Francisco El Alto, Guatemala",
+                "type": "city",
+                "c": "GT",
+                "zmw": "00000.28.WMGQZ",
+                "tz": "America/Guatemala",
+                "tzs": "CST",
+                "l": "/q/zmw:00000.28.WMGQZ",
+                "lat": "14.950000",
+                "lon": " -91.449997"
+                },
+                {
+                "name": "San Fernando de Henares, Spain",
+                "type": "city",
+                "c": "ES",
+                "zmw": "00000.12.08221",
+                "tz": "Europe/Madrid",
+                "tzs": "CET",
+                "l": "/q/zmw:00000.12.08221",
+                "lat": "40.433334",
+                "lon": " -3.533333"
+                },
+                {
+                "name": "San Felipe, Costa Rica",
+                "type": "city",
+                "c": "CR",
+                "zmw": "00000.51.WMRPV",
+                "tz": "America/Costa_Rica",
+                "tzs": "CST",
+                "l": "/q/zmw:00000.51.WMRPV",
+                "lat": "9.900000",
+                "lon": " -84.099998"
+                },
+                {
+                "name": "San Fernando, California",
+                "type": "city",
+                "c": "US",
+                "zmw": "91340.1.99999",
+                "tz": "America/Los_Angeles",
+                "tzs": "PST",
+                "l": "/q/zmw:91340.1.99999",
+                "lat": "34.286167",
+                "lon": " -118.434586"
+                },
+                {
+                "name": "San Francisco Acuautla, Mexico",
+                "type": "city",
+                "c": "MX",
+                "zmw": "00000.33.76679",
+                "tz": "America/Mexico_City",
+                "tzs": "CST",
+                "l": "/q/zmw:00000.33.76679",
+                "lat": "19.333334",
+                "lon": " -98.849998"
+                },
+                {
+                "name": "San Fernando de Monte Cristi, Dominican Republic",
+                "type": "city",
+                "c": "DO",
+                "zmw": "00000.23.78451",
+                "tz": "America/Santo_Domingo",
+                "tzs": "AST",
+                "l": "/q/zmw:00000.23.78451",
+                "lat": "19.866667",
+                "lon": " -71.650002"
+                },
+                {
+                "name": "San Felice a Cancello, Italy",
+                "type": "city",
+                "c": "IT",
+                "zmw": "00000.97.16289",
+                "tz": "Europe/Rome",
+                "tzs": "CET",
+                "l": "/q/zmw:00000.97.16289",
+                "lat": "41.005814",
+                "lon": " 14.455833"
+                },
+                {
+                "name": "San Francisco, El Salvador",
+                "type": "city",
+                "c": "SV",
+                "zmw": "00000.22.78670",
+                "tz": "America/El_Salvador",
+                "tzs": "CST",
+                "l": "/q/zmw:00000.22.78670",
+                "lat": "13.700000",
+                "lon": " -88.099998"
+                },
+                {
+                "name": "San Ferdinando di Puglia, Italy",
+                "type": "city",
+                "c": "IT",
+                "zmw": "00000.20.16261",
+                "tz": "Europe/Rome",
+                "tzs": "CET",
+                "l": "/q/zmw:00000.20.16261",
+                "lat": "41.302631",
+                "lon": " 16.070465"
+                },
+                {
+                "name": "San Francisco Tlalcilalcalpan, Mexico",
+                "type": "city",
+                "c": "MX",
+                "zmw": "00000.32.76675",
+                "tz": "America/Mexico_City",
+                "tzs": "CST",
+                "l": "/q/zmw:00000.32.76675",
+                "lat": "19.292778",
+                "lon": " -99.777779"
+                },
+                {
+                "name": "San Felice sul Panaro, Italy",
+                "type": "city",
+                "c": "IT",
+                "zmw": "00000.53.16140",
+                "tz": "Europe/Rome",
+                "tzs": "CET",
+                "l": "/q/zmw:00000.53.16140",
+                "lat": "44.833172",
+                "lon": " 11.142602"
+                }
+                ]
+}

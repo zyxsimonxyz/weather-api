@@ -1,287 +1,245 @@
-//: Current Conditions Playground
+/*
+ 
+ Current Conditions Playground
+ 
+ Parse the current weather conditions into a struct from the Weather Underground located at
+ http://api.wunderground.com/api/#/conditions/q/knoxville,tn.json where # is your API key.
+ 
+ See the current.json file located in the Resources folder of this Playground for a local copy of 
+ the current conditions json data.
+ 
+ */
 
 import UIKit
 
-let jsonFile = NSBundle.mainBundle().pathForResource("current", ofType: "json")
-let jsonData = NSData(contentsOfFile: jsonFile!)
-
-var err: NSError?
-let opts = NSJSONReadingOptions.AllowFragments
-
-let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(jsonData!, options: opts, error: &err)
-
-if err == nil {
-    "no error"
-} else {
-    "error"
-}
-
 /*
-Class to store properties from current_observation json data
+ 
+ Model
+ 
 */
 
-class Current {
-    
-    typealias JSON = [String: AnyObject]
-    
-    // "current_observation": { "display_location": {...} }
+struct DisplayLocation {
     let full: String
     let city: String
     let state: String
-    let stateName: String
-    let country: String
     let zip: String
-    let latitude: String
-    let longitude: String
+    let lat: String
+    let lon: String
     let elevation: String
-    
-    // "current_observation": { "observation_location": {...} }
-    let full2: String
-    let city2: String
-    let state2: String
-    let country2: String
-    let latitude2: String
-    let longitude2: String
-    let elevation2: String
-    
-    // "current_observation": {...}
+}
+
+struct ObservationLocation {
+    let full: String
+    let city: String
+    let state: String
+    let lat: String
+    let lon: String
+    let elevation: String
+}
+
+struct Time {
+    let observationTime: String
+    let timezoneShort: String
+    let timezoneLong: String
+}
+
+struct Current {
     let stationId: String
-    let observTime: String
-    let tzShort: String
-    let tzLong: String
     let weather: String
-    let tempF: Float
-    let tempC: Float
-    let relHum: String
-    let windDir: String
-    let windDeg: Int
-    let windMph: Float
-    let windGustMph: Float
-    let windKph: Float
-    let windGustKph: Float
-    let pressureMb: String
-    let pressureIn: String
-    let dewpointF: Int
-    let dewpointC: Int
-    let feelsLikeF: String
-    let feelsLikeC: String
-    let visibilityMi: String
-    let visibilityKm: String
+    let humidity: String
+    let pressure: String
+    let presstrend: String
+    let visibility: String
     let uv: String
-    let precipTodayIn: String
-    let precipTodayMm: String
     let icon: String
+}
+
+struct Wind {
+    let direction: String
+    let degrees: Float
+    let speed: Float
+    let gustSpeed: Float
+    let chill: String
+}
+
+struct Temperature {
+    let temp: Float
+    let dewpoint: Float
+    let heatindex: String
+    let feelslike: String
+}
+
+/*
+ 
+ Parser
+ 
+*/
+
+class DisplayParser {
     
-    init(json: AnyObject) {
+    let units = 0   // if units 0 then Fahrenheight, if unit 1 then Celsius
+    
+    func displayLocationFrom(data: NSData?) -> DisplayLocation? {
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
+
+        guard let full = json["current_observation"]["display_location"]["full"].string else { return nil }
+        guard let city = json["current_observation"]["display_location"]["city"].string else { return nil }
+        guard let st = json["current_observation"]["display_location"]["state"].string else { return nil }
+        guard let zip = json["current_observation"]["display_location"]["zip"].string else { return nil }
+        guard let lat = json["current_observation"]["display_location"]["latitude"].string else { return nil }
+        guard let lon = json["current_observation"]["display_location"]["longitude"].string else { return nil }
+        guard let elev = json["current_observation"]["display_location"]["elevation"].string else { return nil }
         
-        // display_location dictionary
-        if let
-            jsonDict = json as? JSON,
-            currentObsDict = jsonDict["current_observation"] as? JSON,
-            displayLocDict = currentObsDict["display_location"] as? JSON,
-            full = displayLocDict["full"] as? String,
-            city = displayLocDict["city"] as? String,
-            state = displayLocDict["state"] as? String,
-            stateName = displayLocDict["state_name"] as? String,
-            country = displayLocDict["country"] as? String,
-            zip = displayLocDict["zip"] as? String,
-            latitude = displayLocDict["latitude"] as? String,
-            longitude = displayLocDict["longitude"] as? String,
-            elevation = displayLocDict["elevation"] as? String
-        {
-            self.full = full
-            self.city = city
-            self.state = state
-            self.stateName = stateName
-            self.country = country
-            self.zip = zip
-            self.latitude = latitude
-            self.longitude = longitude
-            self.elevation = elevation
-        }
-        else
-        {
-            self.full = "err"
-            self.city = "err"
-            self.state = "err"
-            self.stateName = "err"
-            self.country = "err"
-            self.zip = "err"
-            self.latitude = "err"
-            self.longitude = "err"
-            self.elevation = "err"
-        }
+        return DisplayLocation(full: full, city: city, state: st, zip: zip, lat: lat, lon: lon, elevation: elev)
+    }
+    
+    func observationLocationFrom(data: NSData?) -> ObservationLocation? {
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
         
-        // observation_location dictionary
-        if let
-            jsonDict = json as? JSON,
-            currentObsDict = jsonDict["current_observation"] as? JSON,
-            observationLocDict = currentObsDict["observation_location"] as? JSON,
-            full2 = observationLocDict["full"] as? String,
-            city2 = observationLocDict["city"] as? String,
-            state2 = observationLocDict["state"] as? String,
-            country2 = observationLocDict["country"] as? String,
-            latitude2 = observationLocDict["latitude"] as? String,
-            longitude2 = observationLocDict["longitude"] as? String,
-            elevation2 = observationLocDict["elevation"] as? String
-        {
-            self.full2 = full2
-            self.city2 = city2
-            self.state2 = state2
-            self.country2 = country2
-            self.latitude2 = latitude2
-            self.longitude2 = longitude2
-            self.elevation2 = elevation2
-        }
-        else
-        {
-            self.full2 = "err"
-            self.city2 = "err"
-            self.state2 = "err"
-            self.country2 = "err"
-            self.latitude2 = "err"
-            self.longitude2 = "err"
-            self.elevation2 = "err"
-        }
+        guard let full = json["current_observation"]["observation_location"]["full"].string else { return nil }
+        guard let city = json["current_observation"]["observation_location"]["city"].string else { return nil }
+        guard let st = json["current_observation"]["observation_location"]["state"].string else { return nil }
+        guard let lat = json["current_observation"]["observation_location"]["latitude"].string else { return nil }
+        guard let lon = json["current_observation"]["observation_location"]["longitude"].string else { return nil }
+        guard let el = json["current_observation"]["observation_location"]["elevation"].string else { return nil }
         
-        // current_observation
-        if let
-            jsonDict = json as? JSON,
-            currentObsDict = jsonDict["current_observation"] as? JSON,
-            stationId = currentObsDict["station_id"] as? String,
-            observTime = currentObsDict["observation_time"] as? String,
-            tzShort = currentObsDict["local_tz_short"] as? String,
-            tzLong = currentObsDict["local_tz_long"] as? String,
-            weather = currentObsDict["weather"] as? String,
-            tempF = currentObsDict["temp_f"] as? Float,
-            tempC = currentObsDict["temp_c"] as? Float,
-            relHum = currentObsDict["relative_humidity"] as? String,
-            windDir = currentObsDict["wind_dir"] as? String,
-            windDeg = currentObsDict["wind_degrees"] as? Int,
-            windMph = currentObsDict["wind_mph"] as? Float,
-            windGustMph = currentObsDict["wind_gust_mph"] as? Float,
-            windKph = currentObsDict["wind_kph"] as? Float,
-            windGustKph = currentObsDict["wind_gust_kph"] as? Float,
-            pressureMb = currentObsDict["pressure_mb"] as? String,
-            pressureIn = currentObsDict["pressure_in"] as? String,
-            dewpointF = currentObsDict["dewpoint_f"] as? Int,
-            dewpointC = currentObsDict["dewpoint_c"] as? Int,
-            feelsLikeF = currentObsDict["feelslike_f"] as? String,
-            feelsLikeC = currentObsDict["feelslike_c"] as? String,
-            visibilityMi = currentObsDict["visibility_mi"] as? String,
-            visibilityKm = currentObsDict["visibility_km"] as? String,
-            uv = currentObsDict["UV"] as? String,
-            precipTodayIn = currentObsDict["precip_today_in"] as? String,
-            precipTodayMm = currentObsDict["precip_today_metric"] as? String,
-            icon = currentObsDict["icon"] as? String
-        {
-            self.stationId = stationId
-            self.observTime = observTime
-            self.tzShort = tzShort
-            self.tzLong = tzLong
-            self.weather = weather
-            self.tempF = tempF
-            self.tempC = tempC
-            self.relHum = relHum
-            self.windDir = windDir
-            self.windDeg = windDeg
-            self.windMph = windMph
-            self.windGustMph = windGustMph
-            self.windKph = windKph
-            self.windGustKph = windGustKph
-            self.pressureMb = pressureMb
-            self.pressureIn = pressureIn
-            self.dewpointF = dewpointF
-            self.dewpointC = dewpointC
-            self.feelsLikeF = feelsLikeF
-            self.feelsLikeC = feelsLikeC
-            self.visibilityMi = visibilityMi
-            self.visibilityKm = visibilityKm
-            self.uv = uv
-            self.precipTodayIn = precipTodayIn
-            self.precipTodayMm = precipTodayMm
-            self.icon = icon
-        }
-        else
-        {
-            self.stationId = "err"
-            self.observTime = "err"
-            self.tzShort = "err"
-            self.tzLong = "err"
-            self.weather = "err"
-            self.tempF = 99
-            self.tempC = 99
-            self.relHum = "err"
-            self.windDir = "err"
-            self.windDeg = 99
-            self.windMph = 99
-            self.windGustMph = 99
-            self.windKph = 99
-            self.windGustKph = 99
-            self.pressureMb = "err"
-            self.pressureIn = "err"
-            self.dewpointF = 99
-            self.dewpointC = 99
-            self.feelsLikeF = "err"
-            self.feelsLikeC = "err"
-            self.visibilityMi = "err"
-            self.visibilityKm = "err"
-            self.uv = "err"
-            self.precipTodayIn = "err"
-            self.precipTodayMm = "err"
-            self.icon = "err"
-        }
+        return ObservationLocation(full: full, city: city, state: st, lat: lat, lon: lon, elevation: el)
+    }
+    
+    func timeFrom(data: NSData?) -> Time? {
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
+        
+        guard let obs = json["current_observation"]["observation_time"].string else { return nil }
+        guard let tzshort = json["current_observation"]["local_tz_short"].string else { return nil }
+        guard let tzlong = json["current_observation"]["local_tz_long"].string else { return nil }
+
+        return Time(observationTime: obs, timezoneShort: tzshort, timezoneLong: tzlong)
+    }
+    
+    func currentFrom(data: NSData?) -> Current? {
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
+        
+        guard let st = json["current_observation"]["station_id"].string else { return nil }
+        guard let we = json["current_observation"]["weather"].string else { return nil }
+        guard let hu = json["current_observation"]["relative_humidity"].string else { return nil }
+        
+        let keyP = units == 0 ? "pressure_in" : "pressure_mb"
+        guard let pr = json["current_observation"][keyP].string else { return nil }
+        
+        guard let pt = json["current_observation"]["pressure_trend"].string else { return nil }
+
+        let keyV = units == 0 ? "visibility_mi" : "visibility_km"
+        guard let vi = json["current_observation"][keyV].string else { return nil }
+
+        guard let uv = json["current_observation"]["UV"].string else { return nil }
+        guard let ic = json["current_observation"]["icon"].string else { return nil }
+
+        return Current(stationId: st, weather: we, humidity: hu, pressure: pr, presstrend: pt, visibility: vi, uv: uv, icon: ic)
+    }
+    
+    func windFrom(data: NSData?) -> Wind? {
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
+        
+        guard let di = json["current_observation"]["wind_dir"].string else { return nil }
+        guard let dg = json["current_observation"]["wind_degrees"].float else { return nil }
+
+        let keyS = units == 0 ? "wind_mph" : "wind_kph"
+        guard let sp = json["current_observation"][keyS].float else { return nil }
+        
+        let keyG = units == 0 ? "wind_gust_mph" : "wind_gust_kph"
+        guard let gu = json["current_observation"][keyG].float else { return nil }
+        
+        let keyC = units == 0 ? "windchill_f" : "windchill_c"
+        guard let ch = json["current_observation"][keyC].string else { return nil }
+        
+        return Wind(direction: di, degrees: dg, speed: sp, gustSpeed: gu, chill: ch)
+    }
+    
+    func tempFrom(data: NSData?) -> Temperature? {
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
+        
+        let keyT = units == 0 ? "temp_f" : "temp_c"
+        guard let te = json["current_observation"][keyT].float else { return nil }
+        
+        let keyD = units == 0 ? "dewpoint_f" : "dewpoint_c"
+        guard let de = json["current_observation"][keyD].float else { return nil }
+        
+        let keyH = units == 0 ? "heat_index_f" : "heat_index_c"
+        guard let he = json["current_observation"][keyH].string else { return nil }
+
+        let keyF = units == 0 ? "feelslike_f" : "feelslike_c"
+        guard let fe = json["current_observation"][keyF].string else { return nil }
+
+        return Temperature(temp: te, dewpoint: de, heatindex: he, feelslike: fe)
     }
     
 }
 
-// Create a current object from the json file then view the values
+/*
+ 
+ Example
+ 
+*/
 
-let current = Current(json: json!)
+let jsonFile = NSBundle.mainBundle().pathForResource("current", ofType: "json")
+let jsonData = NSData(contentsOfFile: jsonFile!)
 
-current.full
-current.city
-current.state
-current.stateName
-current.country
-current.zip
-current.latitude
-current.longitude
-current.elevation
+let parser = DisplayParser()
 
-current.full2
-current.city2
-current.state2
-current.country2
-current.latitude2
-current.longitude2
-current.elevation2
+let display = parser.displayLocationFrom(jsonData)
 
-current.stationId
-current.observTime
-current.tzShort
-current.tzLong
-current.weather
-current.tempF
-current.tempC
-current.relHum
-current.windDir
-current.windDeg
-current.windMph
-current.windGustMph
-current.windKph
-current.windGustKph
-current.pressureMb
-current.pressureIn
-current.dewpointF
-current.dewpointC
-current.feelsLikeF
-current.feelsLikeC
-current.visibilityMi
-current.visibilityKm
-current.uv
-current.precipTodayIn
-current.precipTodayMm
-current.icon
+display?.full
+display?.city
+display?.state
+display?.zip
+display?.lat
+display?.lon
+display?.elevation
 
+let observation = parser.observationLocationFrom(jsonData)
+
+observation?.full
+observation?.city
+observation?.state
+observation?.lat
+observation?.lon
+observation?.elevation
+
+let time = parser.timeFrom(jsonData)
+
+time?.observationTime
+time?.timezoneShort
+time?.timezoneLong
+
+let current = parser.currentFrom(jsonData)
+
+current?.stationId
+current?.weather
+current?.humidity
+current?.pressure
+current?.presstrend
+current?.visibility
+current?.uv
+current?.icon
+
+let wind = parser.windFrom(jsonData)
+
+wind?.direction
+wind?.degrees
+wind?.speed
+wind?.gustSpeed
+wind?.chill
+
+let temperature = parser.tempFrom(jsonData)
+
+temperature?.temp
+temperature?.dewpoint
+temperature?.heatindex
+temperature?.feelslike
 

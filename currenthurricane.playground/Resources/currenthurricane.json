@@ -1,0 +1,1813 @@
+
+{
+    "response": {
+        "version":"0.1",
+        "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+        "features": {
+            "currenthurricane": 1
+        }
+    },
+    "currenthurricane": [
+                         {
+                         "stormInfo": {
+                            "stormName":"99E",
+                            "stormName_Nice":"Invest 99E",
+                            "stormNumber":"ep201599",
+                            "requesturl":"/hurricane/eastern-pacific/2015/Invest-99E",
+                            "wuiurl":"http://www.wunderground.com/hurricane/eastern-pacific/2015/Invest-99E"
+                         },
+                         "Current": {
+                            "lat":17.0,
+                            "lon":-113.8,
+                            "SaffirSimpsonCategory":-4,
+                            "Category":"Invest",
+                            "Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437609600","pretty": "8:00 PM EDT on July 22, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "23","mday_padded": "23","yday": "203","epoch": "1437609600","pretty": "12:00 AM GMT on July 23, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Thursday","weekday_name_night": "Thursday Night","weekday_name_abbrev": "Thu","weekday_name_unlang": "Thursday","weekday_name_night_unlang": "Thursday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"WindGust":{
+"Kts":null,
+"Mph":null,
+"Kph":null
+},
+"Fspeed":{
+"Kts":5,
+"Mph":5,
+"Kph":10
+},
+"Movement":{
+"Degrees":"340",
+"Text":"NNW"
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+"forecast": [
+],
+"ExtendedForecast": [
+],
+"track": [
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":7.6,
+"lon":-104.5,
+"Time": {
+"hour": "2","hour_padded": "02","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "18","mday_padded": "18","yday": "198","isdst": "1","epoch": "1437199200","pretty": "2:00 AM EDT on July 18, 2015","civil": "2:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "6","hour_padded": "06","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "18","mday_padded": "18","yday": "198","epoch": "1437199200","pretty": "6:00 AM GMT on July 18, 2015","civil": "6:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":8.0,
+"lon":-105.4,
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "18","mday_padded": "18","yday": "198","isdst": "1","epoch": "1437220800","pretty": "8:00 AM EDT on July 18, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "18","mday_padded": "18","yday": "198","epoch": "1437220800","pretty": "12:00 PM GMT on July 18, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":8.1,
+"lon":-105.9,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "18","mday_padded": "18","yday": "198","isdst": "1","epoch": "1437242400","pretty": "2:00 PM EDT on July 18, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "18","mday_padded": "18","yday": "198","epoch": "1437242400","pretty": "6:00 PM GMT on July 18, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":9.3,
+"lon":-106.4,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "18","mday_padded": "18","yday": "198","isdst": "1","epoch": "1437264000","pretty": "8:00 PM EDT on July 18, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","epoch": "1437264000","pretty": "12:00 AM GMT on July 19, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":9.7,
+"lon":-106.8,
+"Time": {
+"hour": "2","hour_padded": "02","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","isdst": "1","epoch": "1437285600","pretty": "2:00 AM EDT on July 19, 2015","civil": "2:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "6","hour_padded": "06","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","epoch": "1437285600","pretty": "6:00 AM GMT on July 19, 2015","civil": "6:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":9.6,
+"lon":-106.3,
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","isdst": "1","epoch": "1437307200","pretty": "8:00 AM EDT on July 19, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","epoch": "1437307200","pretty": "12:00 PM GMT on July 19, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":9.9,
+"lon":-107.0,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","isdst": "1","epoch": "1437328800","pretty": "2:00 PM EDT on July 19, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","epoch": "1437328800","pretty": "6:00 PM GMT on July 19, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":10.0,
+"lon":-108.0,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "19","mday_padded": "19","yday": "199","isdst": "1","epoch": "1437350400","pretty": "8:00 PM EDT on July 19, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","epoch": "1437350400","pretty": "12:00 AM GMT on July 20, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":10.7,
+"lon":-109.7,
+"Time": {
+"hour": "2","hour_padded": "02","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","isdst": "1","epoch": "1437372000","pretty": "2:00 AM EDT on July 20, 2015","civil": "2:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "6","hour_padded": "06","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","epoch": "1437372000","pretty": "6:00 AM GMT on July 20, 2015","civil": "6:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":12.1,
+"lon":-108.7,
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","isdst": "1","epoch": "1437393600","pretty": "8:00 AM EDT on July 20, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","epoch": "1437393600","pretty": "12:00 PM GMT on July 20, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":12.5,
+"lon":-109.1,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","isdst": "1","epoch": "1437415200","pretty": "2:00 PM EDT on July 20, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","epoch": "1437415200","pretty": "6:00 PM GMT on July 20, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":13.5,
+"lon":-110.5,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","isdst": "1","epoch": "1437436800","pretty": "8:00 PM EDT on July 20, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437436800","pretty": "12:00 AM GMT on July 21, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":14.4,
+"lon":-111.4,
+"Time": {
+"hour": "2","hour_padded": "02","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437458400","pretty": "2:00 AM EDT on July 21, 2015","civil": "2:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "6","hour_padded": "06","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437458400","pretty": "6:00 AM GMT on July 21, 2015","civil": "6:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":14.6,
+"lon":-111.9,
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437480000","pretty": "8:00 AM EDT on July 21, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437480000","pretty": "12:00 PM GMT on July 21, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":15.4,
+"lon":-113.0,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437501600","pretty": "2:00 PM EDT on July 21, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437501600","pretty": "6:00 PM GMT on July 21, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":15.3,
+"lon":-113.1,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437523200","pretty": "8:00 PM EDT on July 21, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437523200","pretty": "12:00 AM GMT on July 22, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":15.5,
+"lon":-113.3,
+"Time": {
+"hour": "2","hour_padded": "02","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437544800","pretty": "2:00 AM EDT on July 22, 2015","civil": "2:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "6","hour_padded": "06","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437544800","pretty": "6:00 AM GMT on July 22, 2015","civil": "6:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":16.0,
+"lon":-113.6,
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437566400","pretty": "8:00 AM EDT on July 22, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437566400","pretty": "12:00 PM GMT on July 22, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":25,
+"Mph":30,
+"Kph":45
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":16.3,
+"lon":-113.3,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437588000","pretty": "2:00 PM EDT on July 22, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437588000","pretty": "6:00 PM GMT on July 22, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":-4,
+"Category":"Invest",
+"lat":17.0,
+"lon":-113.8,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437609600","pretty": "8:00 PM EDT on July 22, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "23","mday_padded": "23","yday": "203","epoch": "1437609600","pretty": "12:00 AM GMT on July 23, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Thursday","weekday_name_night": "Thursday Night","weekday_name_abbrev": "Thu","weekday_name_unlang": "Thursday","weekday_name_night_unlang": "Thursday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+}
+]
+}
+,
+{
+"stormInfo": {
+"stormName":"Halola",
+"stormName_Nice":"Typhoon Halola",
+"stormNumber":"wp201501",
+"requesturl":"/hurricane/western-pacific/2015/Typhoon-Halola",
+"wuiurl":"http://www.wunderground.com/hurricane/western-pacific/2015/Typhoon-Halola"
+},
+"Current": {
+"lat":24.3,
+"lon":135.9,
+"SaffirSimpsonCategory":2,
+"Category":"Typhoon",
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437609600","pretty": "8:00 PM EDT on July 22, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "23","mday_padded": "23","yday": "203","epoch": "1437609600","pretty": "12:00 AM GMT on July 23, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Thursday","weekday_name_night": "Thursday Night","weekday_name_abbrev": "Thu","weekday_name_unlang": "Thursday","weekday_name_night_unlang": "Thursday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":90,
+"Mph":105,
+"Kph":165
+},
+"WindGust":{
+"Kts":110,
+"Mph":125,
+"Kph":205
+},
+"Fspeed":{
+"Kts":8,
+"Mph":9,
+"Kph":8
+},
+"Movement":{
+"Degrees":"285",
+"Text":"WNW"
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":95
+,"SE":85
+,"SW":85
+,"NW":95
+},
+"50":{
+"NE":50
+,"SE":40
+,"SW":40
+,"NW":50
+},
+"64":{
+"NE":25
+,"SE":20
+,"SW":20
+,"NW":25
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+"forecast": [
+{
+"ForecastHour":"12HR",
+"SaffirSimpsonCategory":2,
+"lat":24.6,
+"lon":134.0,"Category":"2",
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "23","mday_padded": "23","yday": "203","isdst": "1","epoch": "1437652800","pretty": "8:00 AM EDT on July 23, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Thursday","weekday_name_night": "Thursday Night","weekday_name_abbrev": "Thu","weekday_name_unlang": "Thursday","weekday_name_night_unlang": "Thursday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "23","mday_padded": "23","yday": "203","epoch": "1437652800","pretty": "12:00 PM GMT on July 23, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Thursday","weekday_name_night": "Thursday Night","weekday_name_abbrev": "Thu","weekday_name_unlang": "Thursday","weekday_name_night_unlang": "Thursday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":95,
+"Mph":110,
+"Kph":175
+},
+"WindGust":{
+"Kts":115,
+"Mph":135,
+"Kph":215
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":100
+,"SE":95
+,"SW":95
+,"NW":100
+},
+"50":{
+"NE":55
+,"SE":50
+,"SW":50
+,"NW":55
+},
+"64":{
+"NE":30
+,"SE":25
+,"SW":25
+,"NW":30
+}
+},
+"ErrorRadius":""
+},
+{
+"ForecastHour":"24HR",
+"SaffirSimpsonCategory":3,
+"lat":24.8,
+"lon":132.1,"Category":"3",
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "23","mday_padded": "23","yday": "203","isdst": "1","epoch": "1437696000","pretty": "8:00 PM EDT on July 23, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Thursday","weekday_name_night": "Thursday Night","weekday_name_abbrev": "Thu","weekday_name_unlang": "Thursday","weekday_name_night_unlang": "Thursday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "24","mday_padded": "24","yday": "204","epoch": "1437696000","pretty": "12:00 AM GMT on July 24, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Friday","weekday_name_night": "Friday Night","weekday_name_abbrev": "Fri","weekday_name_unlang": "Friday","weekday_name_night_unlang": "Friday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":100,
+"Mph":115,
+"Kph":185
+},
+"WindGust":{
+"Kts":125,
+"Mph":145,
+"Kph":230
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":105
+,"SE":100
+,"SW":100
+,"NW":105
+},
+"50":{
+"NE":60
+,"SE":55
+,"SW":55
+,"NW":60
+},
+"64":{
+"NE":35
+,"SE":30
+,"SW":30
+,"NW":35
+}
+},
+"ErrorRadius":""
+},
+{
+"ForecastHour":"36HR",
+"SaffirSimpsonCategory":2,
+"lat":25.5,
+"lon":130.3,"Category":"2",
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "24","mday_padded": "24","yday": "204","isdst": "1","epoch": "1437739200","pretty": "8:00 AM EDT on July 24, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Friday","weekday_name_night": "Friday Night","weekday_name_abbrev": "Fri","weekday_name_unlang": "Friday","weekday_name_night_unlang": "Friday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "24","mday_padded": "24","yday": "204","epoch": "1437739200","pretty": "12:00 PM GMT on July 24, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Friday","weekday_name_night": "Friday Night","weekday_name_abbrev": "Fri","weekday_name_unlang": "Friday","weekday_name_night_unlang": "Friday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":90,
+"Mph":105,
+"Kph":165
+},
+"WindGust":{
+"Kts":110,
+"Mph":125,
+"Kph":205
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":105
+,"SE":100
+,"SW":100
+,"NW":105
+},
+"50":{
+"NE":60
+,"SE":55
+,"SW":55
+,"NW":60
+},
+"64":{
+"NE":35
+,"SE":35
+,"SW":35
+,"NW":35
+}
+},
+"ErrorRadius":""
+},
+{
+"ForecastHour":"48HR",
+"SaffirSimpsonCategory":2,
+"lat":27.1,
+"lon":128.5,"Category":"2",
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "24","mday_padded": "24","yday": "204","isdst": "1","epoch": "1437782400","pretty": "8:00 PM EDT on July 24, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Friday","weekday_name_night": "Friday Night","weekday_name_abbrev": "Fri","weekday_name_unlang": "Friday","weekday_name_night_unlang": "Friday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "25","mday_padded": "25","yday": "205","epoch": "1437782400","pretty": "12:00 AM GMT on July 25, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":85,
+"Mph":100,
+"Kph":160
+},
+"WindGust":{
+"Kts":105,
+"Mph":120,
+"Kph":195
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":100
+,"SE":95
+,"SW":95
+,"NW":100
+},
+"50":{
+"NE":60
+,"SE":55
+,"SW":55
+,"NW":60
+},
+"64":{
+"NE":35
+,"SE":35
+,"SW":35
+,"NW":35
+}
+},
+"ErrorRadius":""
+},
+{
+"ForecastHour":"72HR",
+"SaffirSimpsonCategory":1,
+"lat":31.7,
+"lon":127.6,"Category":"1",
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "25","mday_padded": "25","yday": "205","isdst": "1","epoch": "1437868800","pretty": "8:00 PM EDT on July 25, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Saturday","weekday_name_night": "Saturday Night","weekday_name_abbrev": "Sat","weekday_name_unlang": "Saturday","weekday_name_night_unlang": "Saturday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "26","mday_padded": "26","yday": "206","epoch": "1437868800","pretty": "12:00 AM GMT on July 26, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":70,
+"Mph":80,
+"Kph":130
+},
+"WindGust":{
+"Kts":85,
+"Mph":100,
+"Kph":160
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":85
+,"SE":85
+,"SW":75
+,"NW":75
+},
+"50":{
+"NE":50
+,"SE":50
+,"SW":40
+,"NW":40
+},
+"64":{
+"NE":30
+,"SE":30
+,"SW":30
+,"NW":30
+}
+},
+"ErrorRadius":""
+},
+{
+"ForecastHour":"4DAY",
+"SaffirSimpsonCategory":0,
+"lat":37.0,
+"lon":131.0,"Category":"ts",
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "26","mday_padded": "26","yday": "206","isdst": "1","epoch": "1437955200","pretty": "8:00 PM EDT on July 26, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Sunday","weekday_name_night": "Sunday Night","weekday_name_abbrev": "Sun","weekday_name_unlang": "Sunday","weekday_name_night_unlang": "Sunday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "27","mday_padded": "27","yday": "207","epoch": "1437955200","pretty": "12:00 AM GMT on July 27, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":45,
+"Mph":50,
+"Kph":85
+},
+"WindGust":{
+"Kts":55,
+"Mph":65,
+"Kph":100
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"ErrorRadius":""
+},
+{
+"ForecastHour":"5DAY",
+"SaffirSimpsonCategory":-2,
+"lat":39.9,
+"lon":138.1,"Category":"td",
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "27","mday_padded": "27","yday": "207","isdst": "1","epoch": "1438041600","pretty": "8:00 PM EDT on July 27, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "28","mday_padded": "28","yday": "208","epoch": "1438041600","pretty": "12:00 AM GMT on July 28, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":20,
+"Mph":25,
+"Kph":35
+},
+"WindGust":{
+"Kts":30,
+"Mph":35,
+"Kph":55
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"WindRadius":{
+"34":{
+},
+"50":{
+},
+"64":{
+}
+},
+"ErrorRadius":""
+}
+],
+"ExtendedForecast": [
+],
+"track": [
+{
+"SaffirSimpsonCategory":0,
+"Category":"Tropical Storm",
+"lat":21.9,
+"lon":145.5,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","isdst": "1","epoch": "1437415200","pretty": "2:00 PM EDT on July 20, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","epoch": "1437415200","pretty": "6:00 PM GMT on July 20, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":55,
+"Mph":65,
+"Kph":100
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":70
+,"SE":55
+,"SW":25
+,"NW":80
+},
+"50":{
+"NE":25
+,"SE":20
+,"SW":10
+,"NW":25
+},
+"64":{
+"NE":null
+,"SE":null
+,"SW":null
+,"NW":null
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":0,
+"Category":"Tropical Storm",
+"lat":22.4,
+"lon":144.1,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "20","mday_padded": "20","yday": "200","isdst": "1","epoch": "1437436800","pretty": "8:00 PM EDT on July 20, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Monday","weekday_name_night": "Monday Night","weekday_name_abbrev": "Mon","weekday_name_unlang": "Monday","weekday_name_night_unlang": "Monday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437436800","pretty": "12:00 AM GMT on July 21, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":60,
+"Mph":70,
+"Kph":110
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":70
+,"SE":55
+,"SW":25
+,"NW":80
+},
+"50":{
+"NE":25
+,"SE":20
+,"SW":20
+,"NW":25
+},
+"64":{
+"NE":null
+,"SE":null
+,"SW":null
+,"NW":null
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":1,
+"Category":"Typhoon",
+"lat":22.6,
+"lon":142.9,
+"Time": {
+"hour": "2","hour_padded": "02","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437458400","pretty": "2:00 AM EDT on July 21, 2015","civil": "2:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "6","hour_padded": "06","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437458400","pretty": "6:00 AM GMT on July 21, 2015","civil": "6:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":65,
+"Mph":75,
+"Kph":120
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":70
+,"SE":55
+,"SW":45
+,"NW":80
+},
+"50":{
+"NE":25
+,"SE":20
+,"SW":20
+,"NW":25
+},
+"64":{
+"NE":null
+,"SE":null
+,"SW":null
+,"NW":null
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":1,
+"Category":"Typhoon",
+"lat":22.9,
+"lon":141.7,
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437480000","pretty": "8:00 AM EDT on July 21, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437480000","pretty": "12:00 PM GMT on July 21, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":75,
+"Mph":85,
+"Kph":140
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":80
+,"SE":70
+,"SW":60
+,"NW":90
+},
+"50":{
+"NE":35
+,"SE":30
+,"SW":30
+,"NW":35
+},
+"64":{
+"NE":20
+,"SE":20
+,"SW":20
+,"NW":20
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":1,
+"Category":"Typhoon",
+"lat":23.0,
+"lon":140.7,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437501600","pretty": "2:00 PM EDT on July 21, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","epoch": "1437501600","pretty": "6:00 PM GMT on July 21, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":75,
+"Mph":85,
+"Kph":140
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":95
+,"SE":85
+,"SW":70
+,"NW":95
+},
+"50":{
+"NE":40
+,"SE":35
+,"SW":35
+,"NW":40
+},
+"64":{
+"NE":20
+,"SE":20
+,"SW":20
+,"NW":20
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":1,
+"Category":"Typhoon",
+"lat":23.2,
+"lon":139.6,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "21","mday_padded": "21","yday": "201","isdst": "1","epoch": "1437523200","pretty": "8:00 PM EDT on July 21, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Tuesday","weekday_name_night": "Tuesday Night","weekday_name_abbrev": "Tue","weekday_name_unlang": "Tuesday","weekday_name_night_unlang": "Tuesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437523200","pretty": "12:00 AM GMT on July 22, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":75,
+"Mph":85,
+"Kph":140
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":105
+,"SE":95
+,"SW":75
+,"NW":105
+},
+"50":{
+"NE":55
+,"SE":35
+,"SW":35
+,"NW":50
+},
+"64":{
+"NE":30
+,"SE":20
+,"SW":20
+,"NW":25
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":1,
+"Category":"Typhoon",
+"lat":23.5,
+"lon":138.5,
+"Time": {
+"hour": "2","hour_padded": "02","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437544800","pretty": "2:00 AM EDT on July 22, 2015","civil": "2:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "6","hour_padded": "06","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437544800","pretty": "6:00 AM GMT on July 22, 2015","civil": "6:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":75,
+"Mph":85,
+"Kph":140
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":105
+,"SE":95
+,"SW":75
+,"NW":105
+},
+"50":{
+"NE":55
+,"SE":35
+,"SW":35
+,"NW":50
+},
+"64":{
+"NE":30
+,"SE":20
+,"SW":20
+,"NW":25
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":1,
+"Category":"Typhoon",
+"lat":23.9,
+"lon":137.6,
+"Time": {
+"hour": "8","hour_padded": "08","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437566400","pretty": "8:00 AM EDT on July 22, 2015","civil": "8:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "AM"
+},
+"TimeGMT": {
+"hour": "12","hour_padded": "12","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437566400","pretty": "12:00 PM GMT on July 22, 2015","civil": "12:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":75,
+"Mph":85,
+"Kph":140
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":105
+,"SE":95
+,"SW":75
+,"NW":105
+},
+"50":{
+"NE":55
+,"SE":35
+,"SW":35
+,"NW":50
+},
+"64":{
+"NE":30
+,"SE":20
+,"SW":20
+,"NW":25
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":2,
+"Category":"Typhoon",
+"lat":24.1,
+"lon":136.7,
+"Time": {
+"hour": "14","hour_padded": "14","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437588000","pretty": "2:00 PM EDT on July 22, 2015","civil": "2:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"hour": "18","hour_padded": "18","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","epoch": "1437588000","pretty": "6:00 PM GMT on July 22, 2015","civil": "6:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"WindSpeed":{
+"Kts":90,
+"Mph":105,
+"Kph":165
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":95
+,"SE":85
+,"SW":85
+,"NW":95
+},
+"50":{
+"NE":50
+,"SE":40
+,"SW":40
+,"NW":50
+},
+"64":{
+"NE":25
+,"SE":20
+,"SW":20
+,"NW":25
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+},
+{
+"SaffirSimpsonCategory":2,
+"Category":"Typhoon",
+"lat":24.3,
+"lon":135.9,
+"Time": {
+"hour": "20","hour_padded": "20","year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "22","mday_padded": "22","yday": "202","isdst": "1","epoch": "1437609600","pretty": "8:00 PM EDT on July 22, 2015","civil": "8:00 PM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Wednesday","weekday_name_night": "Wednesday Night","weekday_name_abbrev": "Wed","weekday_name_unlang": "Wednesday","weekday_name_night_unlang": "Wednesday Night","ampm": "PM"
+},
+"TimeGMT": {
+"year": "2015","mon": "7","mon_padded": "07","mon_abbrev": "Jul","mday": "23","mday_padded": "23","yday": "203","epoch": "1437609600","pretty": "12:00 AM GMT on July 23, 2015","civil": "12:00 AM","month_name": "July","month_name_abbrev": "Jul","weekday_name": "Thursday","weekday_name_night": "Thursday Night","weekday_name_abbrev": "Thu","weekday_name_unlang": "Thursday","weekday_name_night_unlang": "Thursday Night","ampm": "AM"
+},
+"WindSpeed":{
+"Kts":90,
+"Mph":105,
+"Kph":165
+},
+"Pressure":{
+"mb":null,
+"inches":null
+},
+"WindQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the WindRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+,"quad_1":"NE"
+,"quad_2":"SE"
+,"quad_3":"SW"
+,"quad_4":"NW"
+},
+"WindRadius":{
+"34":{
+"NE":95
+,"SE":85
+,"SW":85
+,"NW":95
+},
+"50":{
+"NE":50
+,"SE":40
+,"SW":40
+,"NW":50
+},
+"64":{
+"NE":25
+,"SE":20
+,"SW":20
+,"NW":25
+}
+},
+"SeaQuadrants":{
+"comment":"Use these keys to determine what quadrants exist in the SeaRadius object they could be N S E W (representing quadrants rotated 45 degrees x) or NE SE SW NW (representing the typical + quadrant system)"
+},
+"SeaRadius":{
+"12":{
+}
+}
+}
+]
+}
+]
+}

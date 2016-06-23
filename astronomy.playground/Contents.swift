@@ -2,62 +2,83 @@
 
 import UIKit
 
+/*
+ 
+ Model
+ 
+*/
+
+struct Moon {
+    let percentIlluminated: String
+    let age: String
+    let phase: String
+    let hemisphere: String
+}
+
+struct Sun {
+    let riseHour: String
+    let riseMinute: String
+    let setHour: String
+    let setMinute: String
+}
+
+/*
+ 
+ Parser
+ 
+*/
+
+class MoonSunParser {
+    
+    func moonFrom(data: NSData?) -> Moon? {
+        
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
+        
+        guard let perc = json["moon_phase"]["percentIlluminated"].string else { return nil }
+        guard let age = json["moon_phase"]["ageOfMoon"].string else { return nil }
+        guard let phase = json["moon_phase"]["phaseofMoon"].string else { return nil }
+        guard let hemi = json["moon_phase"]["hemisphere"].string else { return nil }
+        
+        return Moon(percentIlluminated: perc, age: age, phase: phase, hemisphere: hemi)
+    }
+    
+    func sunFrom(data: NSData?) -> Sun? {
+        
+        guard let data = data else { return nil }
+        let json = JSON(data: data)
+        
+        guard let risehr = json["sun_phase"]["sunrise"]["hour"].string else { return nil }
+        guard let risemin = json["sun_phase"]["sunrise"]["minute"].string else { return nil }
+        guard let sethr = json["sun_phase"]["sunset"]["hour"].string else { return nil }
+        guard let setmin = json["sun_phase"]["sunset"]["minute"].string else { return nil }
+        
+        return Sun(riseHour: risehr, riseMinute: risemin, setHour: sethr, setMinute: setmin)
+    }
+    
+}
+
+/*
+ 
+ Example
+ 
+*/
+
 let jsonFile = NSBundle.mainBundle().pathForResource("astronomy", ofType: "json")
 let jsonData = NSData(contentsOfFile: jsonFile!)
 
-var err: NSError?
-let opts = NSJSONReadingOptions.AllowFragments
+let parser = MoonSunParser()
 
-let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(jsonData!, options: opts, error: &err)
+let moon = parser.moonFrom(jsonData)
 
-if err == nil {
-    "no error"
-} else {
-    "error"
-}
+moon?.percentIlluminated
+moon?.age
+moon?.phase
+moon?.hemisphere
 
-typealias JSON = [String: AnyObject]
+let sun = parser.sunFrom(jsonData)
 
-if let jsonDict = json as? JSON {
-    
-    print(jsonDict)
-    
-    if let moonPhaseDict = jsonDict["moon_phase"] as? JSON {
-        
-        let percentIlluminated = moonPhaseDict["percentIlluminated"] as? String
-        let ageOfMoon = moonPhaseDict["ageOfMoon"] as? String
-        let phaseOfMoon = moonPhaseDict["phaseofMoon"] as? String
-        let hemisphere = moonPhaseDict["hemisphere"] as? String
-        
-        let currentTime = moonPhaseDict["current_time"] as? [String: AnyObject]
-        
-        if let currentTimeDict = moonPhaseDict["current_time"] as? JSON {
-            let hour  = currentTimeDict["hour"] as? String
-            let minute = currentTimeDict["minute"] as? String
-        }
-        
-        if let sunriseDict = moonPhaseDict["sunrise"] as? JSON {
-            let hour = sunriseDict["hour"] as? String
-            let minute = sunriseDict["minute"] as? String
-        }
-        
-        if let sunsetDict = moonPhaseDict["sunset"] as? JSON {
-            let hour = sunsetDict["hour"] as? String
-            let minute = sunsetDict["minute"] as? String
-        }
-    }
-    
-    if let sunphaseDict = jsonDict["sun_phase"] as? JSON {
-        
-        if let sunriseDict = sunphaseDict["sunrise"] as? JSON {
-            let hour = sunriseDict["hour"] as? String
-            let minutre = sunriseDict["minute"] as? String
-        }
-        
-        if let sunsetDict = sunphaseDict["sunset"] as? JSON {
-            let hour = sunsetDict["hour"] as? String
-            let minute = sunsetDict["minute"] as? String
-        }
-    }
-    
-}
+sun?.riseHour
+sun?.riseMinute
+sun?.setHour
+sun?.setMinute
