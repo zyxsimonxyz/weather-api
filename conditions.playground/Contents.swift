@@ -65,7 +65,7 @@ struct Wind {
 struct Temperature {
     let temp: Float
     let dewpoint: Float
-    let heatindex: String
+    let heatindex: Float?
     let feelslike: String
 }
 
@@ -75,7 +75,7 @@ struct Temperature {
  
 */
 
-class DisplayParser {
+class CurrentParser {
     
     let units = 0   // if units 0 then Fahrenheight, if unit 1 then Celsius
     
@@ -171,7 +171,7 @@ class DisplayParser {
         guard let de = json["current_observation"][keyD].float else { return nil }
         
         let keyH = units == 0 ? "heat_index_f" : "heat_index_c"
-        guard let he = json["current_observation"][keyH].string else { return nil }
+        let he = json["current_observation"][keyH].float
 
         let keyF = units == 0 ? "feelslike_f" : "feelslike_c"
         guard let fe = json["current_observation"][keyF].string else { return nil }
@@ -190,7 +190,7 @@ class DisplayParser {
 let jsonFile = NSBundle.mainBundle().pathForResource("current", ofType: "json")
 let jsonData = NSData(contentsOfFile: jsonFile!)
 
-let parser = DisplayParser()
+let parser = CurrentParser()
 
 let display = parser.displayLocationFrom(jsonData)
 
