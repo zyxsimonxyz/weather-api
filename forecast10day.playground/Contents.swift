@@ -26,6 +26,7 @@ struct ForecastText {
 }
 
 struct ForecastDate {
+    let yday: Int
     let weekdayShort: String
     let weekday: String
 }
@@ -98,9 +99,10 @@ class ForecastParser {
         var forecast = [ForecastDate]()
         
         for (_, item):(String, JSON) in json["forecast"]["simpleforecast"]["forecastday"] {
+            guard let yd = item["date"]["yday"].int else { return nil }
             guard let dayshort = item["date"]["weekday_short"].string else { return nil }
             guard let day = item["date"]["weekday"].string else { return nil }
-            let fo = ForecastDate(weekdayShort: dayshort, weekday: day)
+            let fo = ForecastDate(yday: yd, weekdayShort: dayshort, weekday: day)
             forecast.append(fo)
         }
         return forecast.count > 0 ? forecast : nil
@@ -202,6 +204,7 @@ forecastText?[0].pop
 
 let forecastDate = parser.forecastDateFrom(jsonData)
 
+forecastDate?[0].yday
 forecastDate?[0].weekdayShort
 forecastDate?[0].weekday
 
