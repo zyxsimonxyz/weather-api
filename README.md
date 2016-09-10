@@ -1,9 +1,7 @@
 # Weather API
 
-Swift playgrounds are provided for the [Weather API][] features listed below.
-Each playground demonstrates parsing the JSON returned from the weather API for
-a particular data feature. All weather data is provided by the [Weather
-Underground][].
+Swift playgrounds for parsing JSON data returned from the [Weather Underground
+API][]. Parsing examples of the following features of the API are listed below.
 
 - alerts
 - almanac
@@ -12,13 +10,11 @@ Underground][].
 - conditions
 - currenthurricane
 - forecast10day
+- hourly10day
 
 An iOS application is available in the **AutoCompleteAPI** project to
 demonstrate the autocomplete API. This app lists matching locations as the user
 types the name or zip code of a location.
 
-Note that JSON parsing is accomplished with the [SwiftyJSON][] library available on GitHub.
+[Weather Underground API]: http://www.wunderground.com
 
-[Weather API]: http://www.wunderground.com/weather/api/
-[Weather Underground]: http://www.wunderground.com
-[SwiftyJSON]: https://github.com/SwiftyJSON/SwiftyJSON
