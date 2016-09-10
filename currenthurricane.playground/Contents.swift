@@ -1,12 +1,20 @@
-//: Playground - noun: a place where people can play
+/*
+ 
+Current hurricane playground for parsing hurricane conditions returned as JSON
+data from the Weather Underground API.
+
+See the currenthurricane.json file located in the Resources folder of this
+Playground for a local copy of the json data.
+
+Weather Underground API documentation:
+https://www.wunderground.com/weather/api/d/docs
+
+*/
 
 import UIKit
 
-/*
- 
- Model
- 
- */
+// Model
+// -----------------------------------------------------------------------------
 
 struct StormInfo {
     let name: String
@@ -21,68 +29,80 @@ struct Current {
     let category: String
 }
 
-/*
+// Parser
+// -----------------------------------------------------------------------------
 
- Parser
- 
-*/
-
-class HurrParser {
+class HurricaneParser {
     
-    let units = 0   // if units 0 then Fahrenheight, if unit 1 then Celsius
+    /**
+     Parse storm information returned as json data from Weather Underground API.
+     - Parameter json: Dictionary representing json data.
+     - Returns: Array of storm info structs.
+     */
     
-    func stormInfo(data: NSData?) -> [StormInfo]? {
+    func stormInfo(json: [String: AnyObject]?) -> [StormInfo]? {
         
-        guard let jsondata = data else { return nil }
-        let json = JSON(data: jsondata)
+        guard let json = json else { return nil }
+        guard let storms = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
         
         var storminfo = [StormInfo]()
         
-        for (_, item): (String, JSON) in json["currenthurricane"] {
-            guard let name = item["stormInfo"]["stormName"].string else { return nil }
-            guard let namen = item["stormInfo"]["stormName_Nice"].string else { return nil }
-            guard let num = item["stormInfo"]["stormNumber"].string else { return nil }
+        for storm in storms {
+            guard let name = storm["stormInfo"]?["stormName"] as? String else { return nil }
+            guard let namen = storm["stormInfo"]?["stormName_Nice"] as? String else { return nil }
+            guard let num = storm["stormInfo"]?["stormNumber"] as? String else { return nil }
             let si = StormInfo(name: name, nameNice: namen, number: num)
             storminfo.append(si)
         }
         
-        // if storminfo array is empty then return nil
         return storminfo.count > 0 ? storminfo : nil
     }
     
-    func currInfo(data: NSData?) -> [Current]? {
+    /**
+     Parse current information returned as json data from Weather Underground API.
+     - Parameter json: Dictionary representing json data.
+     - Returns: Array of current info structs.
+     */
+    
+    func currInfo(json: [String: AnyObject]?) -> [Current]? {
         
-        guard let jsondata = data else { return nil }
-        let json = JSON(data: jsondata)
+        guard let json = json else { return nil }
+        guard let currentsArray = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
         
-        var curr = [Current]()
+        var currents = [Current]()
         
-        for (_, item): (String, JSON) in json["currenthurricane"] {
-            guard let lat = item["Current"]["lat"].float else { return nil }
-            guard let lon = item["Current"]["lon"].float else { return nil }
-            guard let saff = item["Current"]["SaffirSimpsonCategory"].float else { return nil }
-            guard let cat = item["Current"]["Category"].string else { return nil }
+        for current in currentsArray {
+            guard let lat = current["Current"]?["lat"] as? Float else { return nil }
+            guard let lon = current["Current"]?["lon"] as? Float else { return nil }
+            guard let saff = current["Current"]?["SaffirSimpsonCategory"] as? Float else { return nil }
+            guard let cat = current["Current"]?["Category"] as? String else { return nil }
             let cu = Current(lat: lat, lon: lon, saffcategory: saff, category: cat)
-            curr.append(cu)
+            currents.append(cu)
         }
         
-        return curr.count > 0 ? curr : nil
+        return currents.count > 0 ? currents : nil
     }
     
 }
 
-/*
- 
- Example
- 
- */
+// Example
+// -----------------------------------------------------------------------------
 
-let jsonFile = NSBundle.mainBundle().pathForResource("currenthurricane", ofType: "json")
-let jsonData = NSData(contentsOfFile: jsonFile!)
+let file = NSBundle.mainBundle().pathForResource("currenthurricane", ofType: "json")
+let data = NSData(contentsOfFile: file!)
 
-let pars = HurrParser()
+let json: [String: AnyObject]?
 
-let storminf = pars.stormInfo(jsonData)
+do {
+    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
+} catch let error as NSError {
+    json = nil
+    print("error is \(error.localizedDescription)")
+}
+
+let parser = HurricaneParser()
+
+let storminf = parser.stormInfo(json)
 
 storminf?[0].name
 storminf?[0].nameNice
@@ -92,15 +112,15 @@ storminf?[1].name
 storminf?[1].nameNice
 storminf?[1].number
 
-let curr = pars.currInfo(jsonData)
+let current = parser.currInfo(json)
 
-curr?[0].lat
-curr?[0].lon
-curr?[0].saffcategory
-curr?[0].category
+current?[0].lat
+current?[0].lon
+current?[0].saffcategory
+current?[0].category
 
-curr?[1].lat
-curr?[1].lon
-curr?[1].saffcategory
-curr?[1].category
+current?[1].lat
+current?[1].lon
+current?[1].saffcategory
+current?[1].category
 
