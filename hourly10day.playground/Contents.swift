@@ -45,7 +45,7 @@ class HourlyParser {
         
         for hour in hourlyArray {
             if let yd = hour["FCTTIME"]?["yday"] as? String,
-            let hr = hour["FCTTIME"]?["hour"] as? String,
+            let hr = hour["FCTTIME"]?["civil"] as? String,
             let tp = hour["temp"]?[keyUnits] as? String,
             let pp = hour["pop"] as? String {
                 let hrly = Hourly(yday: yd, hourcivil: hr, temp: tp, pop: pp)
