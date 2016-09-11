@@ -56,7 +56,7 @@ struct Wind {
     let direction: String
     let degrees: Float
     let speed: Float
-    let gustSpeed: Float
+    let gustSpeed: String?
     let chill: String
 }
 
@@ -179,7 +179,7 @@ class CurrentParser {
         guard let sp = json["current_observation"]?[keyS] as? Float else { return nil }
         
         let keyG = units == 0 ? "wind_gust_mph" : "wind_gust_kph"
-        guard let gu = json["current_observation"]?[keyG] as? Float else { return nil }
+        guard let gu = json["current_observation"]?[keyG] as? String else { return nil }
         
         let keyC = units == 0 ? "windchill_f" : "windchill_c"
         guard let ch = json["current_observation"]?[keyC] as? String else { return nil }
