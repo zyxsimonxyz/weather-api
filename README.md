@@ -1,7 +1,7 @@
 # Weather API
 
 Swift playgrounds for parsing JSON data returned from the [Weather Underground
-API][]. Parsing examples of the following features of the API are listed below.
+API][]. Parsing examples are provided for the following features of the API:
 
 - alerts
 - almanac
