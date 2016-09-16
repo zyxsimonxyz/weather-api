@@ -40,7 +40,7 @@ class HurricaneParser {
      - Returns: Array of storm info structs.
      */
     
-    func stormInfo(json: [String: AnyObject]?) -> [StormInfo]? {
+    func stormInfo(json: [String: Any]?) -> [StormInfo]? {
         
         guard let json = json else { return nil }
         guard let storms = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
@@ -64,7 +64,7 @@ class HurricaneParser {
      - Returns: Array of current info structs.
      */
     
-    func currInfo(json: [String: AnyObject]?) -> [Current]? {
+    func currInfo(json: [String: Any]?) -> [Current]? {
         
         guard let json = json else { return nil }
         guard let currentsArray = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
@@ -88,21 +88,21 @@ class HurricaneParser {
 // Example
 // -----------------------------------------------------------------------------
 
-let file = NSBundle.mainBundle().pathForResource("currenthurricane", ofType: "json")
-let data = NSData(contentsOfFile: file!)
+let file = Bundle.main.url(forResource: "currenthurricane", withExtension: "json")
+let data = try Data(contentsOf: file!)
 
-let json: [String: AnyObject]?
+let json: [String: Any]?
 
 do {
-    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-} catch let error as NSError {
+    json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+} catch {
     json = nil
-    print("error is \(error.localizedDescription)")
+    print("Error is \(error.localizedDescription)")
 }
 
 let parser = HurricaneParser()
 
-let storminf = parser.stormInfo(json)
+let storminf = parser.stormInfo(json: json!)
 
 storminf?[0].name
 storminf?[0].nameNice
@@ -112,7 +112,7 @@ storminf?[1].name
 storminf?[1].nameNice
 storminf?[1].number
 
-let current = parser.currInfo(json)
+let current = parser.currInfo(json: json!)
 
 current?[0].lat
 current?[0].lon
@@ -123,4 +123,3 @@ current?[1].lat
 current?[1].lon
 current?[1].saffcategory
 current?[1].category
-

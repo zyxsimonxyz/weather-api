@@ -36,7 +36,7 @@ class HourlyParser {
      - Returns: Array of hourly structs.
      */
     
-    func hourlyForecastFrom(json: [String: AnyObject]?) -> [Hourly]? {
+    func hourlyForecastFrom(json: [String: Any]?) -> [Hourly]? {
         
         guard let hourlyArray = json?["hourly_forecast"] as? [[String: AnyObject]] else { return nil }
         
@@ -61,20 +61,20 @@ class HourlyParser {
 // Example
 // -----------------------------------------------------------------------------
 
-let file = NSBundle.mainBundle().pathForResource("hourly10day", ofType: "json")
-let data = NSData(contentsOfFile: file!)
+let file = Bundle.main.url(forResource: "hourly10day", withExtension: "json")
+let data = try Data(contentsOf: file!)
 
-let json: [String: AnyObject]?
+let json: [String: Any]?
 
 do {
-    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-} catch let error as NSError {
+    json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+} catch {
     json = nil
-    print("error is \(error.localizedDescription)")
+    print("Error is \(error.localizedDescription)")
 }
 
 let parser = HourlyParser()
-let hourly = parser.hourlyForecastFrom(json)
+let hourly = parser.hourlyForecastFrom(json: json!)
 
 hourly?.count
 hourly?[0].yday

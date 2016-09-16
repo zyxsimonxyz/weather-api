@@ -34,7 +34,7 @@ class LocationsParser {
      - Returns: Array of location structs.
      */
     
-    func locationsFrom(json: [String: AnyObject]?) -> [Location]? {
+    func locationsFrom(json: [String: Any]?) -> [Location]? {
         
         guard let json = json else { return nil }
         guard let locationsArray = json["RESULTS"] as? [[String: AnyObject]] else { return nil }
@@ -42,15 +42,13 @@ class LocationsParser {
         var locations = [Location]()
         
         for loc in locationsArray {
-            if let
-                name = loc["name"] as? String,
-                tz = loc["tzs"] as? String,
-                lat = loc["lat"] as? String,
-                lon = loc["lon"] as? String
-            {
-                let lc = Location(name: name, timezone: tz, latitude: lat, longitude: lon)
-                locations.append(lc)
-            }
+            guard let name = loc["name"] as? String else { return nil }
+            guard let tz = loc["tzs"] as? String else { return nil }
+            guard let lat = loc["lat"] as? String else { return nil }
+            guard let lon = loc["lon"] as? String else { return nil }
+
+            let lc = Location(name: name, timezone: tz, latitude: lat, longitude: lon)
+            locations.append(lc)
         }
         
         return locations.count > 0 ? locations : nil
@@ -61,24 +59,23 @@ class LocationsParser {
 // Example
 // -----------------------------------------------------------------------------
 
-let file = NSBundle.mainBundle().pathForResource("autocomplete", ofType: "json")
-let data = NSData(contentsOfFile: file!)
+let file = Bundle.main.url(forResource: "autocomplete", withExtension: "json")
+let data = try Data(contentsOf: file!)
 
-let json: [String: AnyObject]?
+let json: [String: Any]?
 
 do {
-    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-} catch let error as NSError {
+    json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+} catch {
     json = nil
-    print("error is \(error.localizedDescription)")
+    print("Error is \(error.localizedDescription)")
 }
 
 let parser = LocationsParser()
-let locations = parser.locationsFrom(json)
+let locations = parser.locationsFrom(json: json!)
 
+locations?.count
 locations?[0].name
 locations?[0].timezone
 locations?[0].latitude
 locations?[0].longitude
-
-locations?.count

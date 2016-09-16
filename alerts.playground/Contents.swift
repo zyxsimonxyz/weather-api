@@ -34,7 +34,7 @@ class AlertsParser {
      - Returns: Array of alert structs.
      */
     
-    func alertsFrom(json: [String: AnyObject]?) -> [Alert]? {
+    func alertsFrom(json: [String: Any]?) -> [Alert]? {
         
         var alerts = [Alert]()
 
@@ -59,20 +59,20 @@ class AlertsParser {
 // Example
 // ----------------------------------------------------------------------
 
-let file = NSBundle.mainBundle().pathForResource("alerts", ofType: "json")
-let data = NSData(contentsOfFile: file!)
+let file = Bundle.main.url(forResource: "alerts", withExtension: "json")
+let data = try Data(contentsOf: file!)
 
-let json: [String: AnyObject]?
+let json: [String: Any]?
 
 do {
-    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-} catch let error as NSError {
+    json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+} catch {
     json = nil
-    print("error is \(error.localizedDescription)")
+    print("Error is \(error.localizedDescription)")
 }
 
 let parser = AlertsParser()
-let alerts = parser.alertsFrom(json)
+let alerts = parser.alertsFrom(json: json!)
 
 alerts?.count
 alerts?[0].type

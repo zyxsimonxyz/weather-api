@@ -41,14 +41,15 @@ class MoonSunParser {
      - Returns: A single moon struct.
      */
     
-    func moonFrom(json: [String: AnyObject]?) -> Moon? {
+    func moonFrom(json: [String: Any]?) -> Moon? {
         
         guard let json = json else { return nil }
+        guard let moonphase = json["moon_phase"] as? [String: Any] else { return nil }
         
-        guard let perc = json["moon_phase"]?["percentIlluminated"] as? String else { return nil }
-        guard let age = json["moon_phase"]?["ageOfMoon"] as? String else { return nil }
-        guard let phase = json["moon_phase"]?["phaseofMoon"] as? String else { return nil }
-        guard let hemi = json["moon_phase"]?["hemisphere"] as? String else { return nil }
+        guard let perc = moonphase["percentIlluminated"] as? String else { return nil }
+        guard let age = moonphase["ageOfMoon"] as? String else { return nil }
+        guard let phase = moonphase["phaseofMoon"] as? String else { return nil }
+        guard let hemi = moonphase["hemisphere"] as? String else { return nil }
         
         return Moon(percentIlluminated: perc, age: age, phase: phase, hemisphere: hemi)
     }
@@ -59,14 +60,18 @@ class MoonSunParser {
      - Returns: A single sun struct.
      */
     
-    func sunFrom(json: [String: AnyObject]?) -> Sun? {
+    func sunFrom(json: [String: Any]?) -> Sun? {
         
         guard let json = json else { return nil }
+        guard let sunphase = json["sun_phase"] as? [String: Any] else { return nil }
+        guard let sunrise = sunphase["sunrise"] as? [String: Any] else { return nil }
+        guard let sunset = sunphase["sunset"] as? [String: Any] else { return nil }
         
-        guard let risehr = json["sun_phase"]?["sunrise"]??["hour"] as? String else { return nil }
-        guard let risemin = json["sun_phase"]?["sunrise"]??["minute"] as? String else { return nil }
-        guard let sethr = json["sun_phase"]?["sunset"]??["hour"] as? String else { return nil }
-        guard let setmin = json["sun_phase"]?["sunset"]??["minute"] as? String else { return nil }
+        
+        guard let risehr = sunrise["hour"] as? String else { return nil }
+        guard let risemin = sunrise["minute"] as? String else { return nil }
+        guard let sethr = sunset["hour"] as? String else { return nil }
+        guard let setmin = sunset["minute"] as? String else { return nil }
         
         return Sun(riseHour: risehr, riseMinute: risemin, setHour: sethr, setMinute: setmin)
     }
@@ -76,28 +81,28 @@ class MoonSunParser {
 // Example
 // -----------------------------------------------------------------------------
 
-let file = NSBundle.mainBundle().pathForResource("astronomy", ofType: "json")
-let data = NSData(contentsOfFile: file!)
+let file = Bundle.main.url(forResource: "astronomy", withExtension: "json")
+let data = try Data(contentsOf: file!)
 
-let json: [String: AnyObject]?
+let json: [String: Any]?
 
 do {
-    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-} catch let error as NSError {
+    json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+} catch {
     json = nil
-    print("error is \(error.localizedDescription)")
+    print("Error is \(error.localizedDescription)")
 }
 
 let parser = MoonSunParser()
 
-let moon = parser.moonFrom(json)
+let moon = parser.moonFrom(json: json!)
 
 moon?.percentIlluminated
 moon?.age
 moon?.phase
 moon?.hemisphere
 
-let sun = parser.sunFrom(json)
+let sun = parser.sunFrom(json: json!)
 
 sun?.riseHour
 sun?.riseMinute

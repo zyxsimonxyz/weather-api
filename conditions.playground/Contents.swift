@@ -80,18 +80,19 @@ class CurrentParser {
      - Returns: Single current location struct.
      */
     
-    func currentLocationFrom(json: [String: AnyObject]?) -> CurrentLocation? {
+    func currentLocationFrom(json: [String: Any]?) -> CurrentLocation? {
         
         guard let json = json else { return nil }
-        guard let dict = json["current_observation"]?["display_location"] as? [String: AnyObject] else { return nil }
+        guard let observe = json["current_observation"] as? [String: Any] else { return nil }
+        guard let location = observe["display_location"] as? [String: Any] else { return nil }
 
-        guard let full = dict["full"] as? String else { return nil }
-        guard let city = dict["city"] as? String else { return nil }
-        guard let st = dict["state"] as? String else { return nil }
-        guard let zip = dict["zip"] as? String else { return nil }
-        guard let lat = dict["latitude"] as? String else { return nil }
-        guard let lon = dict["longitude"] as? String else { return nil }
-        guard let elev = dict["elevation"] as? String else { return nil }
+        guard let full = location["full"] as? String else { return nil }
+        guard let city = location["city"] as? String else { return nil }
+        guard let st = location["state"] as? String else { return nil }
+        guard let zip = location["zip"] as? String else { return nil }
+        guard let lat = location["latitude"] as? String else { return nil }
+        guard let lon = location["longitude"] as? String else { return nil }
+        guard let elev = location["elevation"] as? String else { return nil }
         
         return CurrentLocation(full: full, city: city, state: st, zip: zip, lat: lat, lon: lon, elevation: elev)
     }
@@ -102,17 +103,18 @@ class CurrentParser {
      - Returns: Single observation location struct.
      */
     
-    func observationLocationFrom(json: [String: AnyObject]?) -> ObservationLocation? {
+    func observationLocationFrom(json: [String: Any]?) -> ObservationLocation? {
         
         guard let json = json else { return nil }
-        guard let dict = json["current_observation"]?["observation_location"] as? [String: AnyObject] else { return nil }
+        guard let observe = json["current_observation"] as? [String: Any] else { return nil }
+        guard let location = observe["display_location"] as? [String: Any] else { return nil }
         
-        guard let full = dict["full"] as? String else { return nil }
-        guard let city = dict["city"] as? String else { return nil }
-        guard let st = dict["state"] as? String else { return nil }
-        guard let lat = dict["latitude"] as? String else { return nil }
-        guard let lon = dict["longitude"] as? String else { return nil }
-        guard let el = dict["elevation"] as? String else { return nil }
+        guard let full = location["full"] as? String else { return nil }
+        guard let city = location["city"] as? String else { return nil }
+        guard let st = location["state"] as? String else { return nil }
+        guard let lat = location["latitude"] as? String else { return nil }
+        guard let lon = location["longitude"] as? String else { return nil }
+        guard let el = location["elevation"] as? String else { return nil }
         
         return ObservationLocation(full: full, city: city, state: st, lat: lat, lon: lon, elevation: el)
     }
@@ -123,13 +125,14 @@ class CurrentParser {
      - Returns: Single time struct.
      */
     
-    func timeFrom(json: [String: AnyObject]?) -> Time? {
+    func timeFrom(json: [String: Any]?) -> Time? {
         
         guard let json = json else { return nil }
+        guard let observe = json["current_observation"] as? [String: Any] else { return nil }
         
-        guard let obs = json["current_observation"]?["observation_time"] as? String else { return nil }
-        guard let tzshort = json["current_observation"]?["local_tz_short"] as? String else { return nil }
-        guard let tzlong = json["current_observation"]?["local_tz_long"] as? String else { return nil }
+        guard let obs = observe["observation_time"] as? String else { return nil }
+        guard let tzshort = observe["local_tz_short"] as? String else { return nil }
+        guard let tzlong = observe["local_tz_long"] as? String else { return nil }
 
         return Time(observationTime: obs, timezoneShort: tzshort, timezoneLong: tzlong)
     }
@@ -140,24 +143,25 @@ class CurrentParser {
      - Returns: Single current weather struct.
      */
     
-    func currentFrom(json: [String: AnyObject]?) -> Current? {
+    func currentFrom(json: [String: Any]?) -> Current? {
         
         guard let json = json else { return nil }
-        
-        guard let st = json["current_observation"]?["station_id"] as? String else { return nil }
-        guard let we = json["current_observation"]?["weather"] as? String else { return nil }
-        guard let hu = json["current_observation"]?["relative_humidity"] as? String else { return nil }
+        guard let observe = json["current_observation"] as? [String: Any] else { return nil }
+
+        guard let st = observe["station_id"] as? String else { return nil }
+        guard let we = observe["weather"] as? String else { return nil }
+        guard let hu = observe["relative_humidity"] as? String else { return nil }
         
         let keyP = units == 0 ? "pressure_in" : "pressure_mb"
-        guard let pr = json["current_observation"]?[keyP] as? String else { return nil }
+        guard let pr = observe[keyP] as? String else { return nil }
         
-        guard let pt = json["current_observation"]?["pressure_trend"] as? String else { return nil }
+        guard let pt = observe["pressure_trend"] as? String else { return nil }
 
         let keyV = units == 0 ? "visibility_mi" : "visibility_km"
-        guard let vi = json["current_observation"]?[keyV] as? String else { return nil }
+        guard let vi = observe[keyV] as? String else { return nil }
 
-        guard let uv = json["current_observation"]?["UV"] as? String else { return nil }
-        guard let ic = json["current_observation"]?["icon"] as? String else { return nil }
+        guard let uv = observe["UV"] as? String else { return nil }
+        guard let ic = observe["icon"] as? String else { return nil }
 
         return Current(stationId: st, weather: we, humidity: hu, pressure: pr, presstrend: pt, visibility: vi, uv: uv, icon: ic)
     }
@@ -168,21 +172,22 @@ class CurrentParser {
      - Returns: Single wind conditions struct.
      */
     
-    func windFrom(json: [String: AnyObject]?) -> Wind? {
+    func windFrom(json: [String: Any]?) -> Wind? {
         
         guard let json = json else { return nil }
+        guard let observe = json["current_observation"] as? [String: Any] else { return nil }
         
-        guard let di = json["current_observation"]?["wind_dir"] as? String else { return nil }
-        guard let dg = json["current_observation"]?["wind_degrees"] as? Float else { return nil }
+        guard let di = observe["wind_dir"] as? String else { return nil }
+        guard let dg = observe["wind_degrees"] as? Float else { return nil }
 
         let keyS = units == 0 ? "wind_mph" : "wind_kph"
-        guard let sp = json["current_observation"]?[keyS] as? Float else { return nil }
+        guard let sp = observe[keyS] as? Float else { return nil }
         
         let keyG = units == 0 ? "wind_gust_mph" : "wind_gust_kph"
-        let gu = json["current_observation"]?[keyG] as? String
+        let gu = observe[keyG] as? String
         
         let keyC = units == 0 ? "windchill_f" : "windchill_c"
-        guard let ch = json["current_observation"]?[keyC] as? String else { return nil }
+        guard let ch = observe[keyC] as? String else { return nil }
         
         return Wind(direction: di, degrees: dg, speed: sp, gustSpeed: gu, chill: ch)
     }
@@ -193,21 +198,22 @@ class CurrentParser {
      - Returns: Single temperature struct.
      */
     
-    func tempFrom(json: [String: AnyObject]?) -> Temperature? {
+    func tempFrom(json: [String: Any]?) -> Temperature? {
         
         guard let json = json else { return nil }
+        guard let observe = json["current_observation"] as? [String: Any] else { return nil }
         
         let keyT = units == 0 ? "temp_f" : "temp_c"
-        guard let te = json["current_observation"]?[keyT] as? Float else { return nil }
+        guard let te = observe[keyT] as? Float else { return nil }
         
         let keyD = units == 0 ? "dewpoint_f" : "dewpoint_c"
-        guard let de = json["current_observation"]?[keyD] as? Float else { return nil }
+        guard let de = observe[keyD] as? Float else { return nil }
         
         let keyH = units == 0 ? "heat_index_f" : "heat_index_c"
-        let he = json["current_observation"]?[keyH] as? Float
+        let he = observe[keyH] as? Float
 
         let keyF = units == 0 ? "feelslike_f" : "feelslike_c"
-        guard let fe = json["current_observation"]?[keyF] as? String else { return nil }
+        guard let fe = observe[keyF] as? String else { return nil }
 
         return Temperature(temp: te, dewpoint: de, heatindex: he, feelslike: fe)
     }
@@ -217,21 +223,21 @@ class CurrentParser {
 // Example
 // -----------------------------------------------------------------------------
 
-let file = NSBundle.mainBundle().pathForResource("current", ofType: "json")
-let data = NSData(contentsOfFile: file!)
+let file = Bundle.main.url(forResource: "current", withExtension: "json")
+let data = try Data(contentsOf: file!)
 
-let json: [String: AnyObject]?
+let json: [String: Any]?
 
 do {
-    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-} catch let error as NSError {
+    json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+} catch {
     json = nil
-    print("error is \(error.localizedDescription)")
+    print("Error is \(error.localizedDescription)")
 }
 
 let parser = CurrentParser()
 
-let display = parser.currentLocationFrom(json)
+let display = parser.currentLocationFrom(json: json!)
 
 display?.full
 display?.city
@@ -241,7 +247,7 @@ display?.lat
 display?.lon
 display?.elevation
 
-let observation = parser.observationLocationFrom(json)
+let observation = parser.observationLocationFrom(json: json!)
 
 observation?.full
 observation?.city
@@ -250,13 +256,13 @@ observation?.lat
 observation?.lon
 observation?.elevation
 
-let time = parser.timeFrom(json)
+let time = parser.timeFrom(json: json!)
 
 time?.observationTime
 time?.timezoneShort
 time?.timezoneLong
 
-let current = parser.currentFrom(json)
+let current = parser.currentFrom(json: json!)
 
 current?.stationId
 current?.weather
@@ -267,7 +273,7 @@ current?.visibility
 current?.uv
 current?.icon
 
-let wind = parser.windFrom(json)
+let wind = parser.windFrom(json: json!)
 
 wind?.direction
 wind?.degrees
@@ -275,7 +281,7 @@ wind?.speed
 wind?.gustSpeed
 wind?.chill
 
-let temperature = parser.tempFrom(json)
+let temperature = parser.tempFrom(json: json!)
 
 temperature?.temp
 temperature?.dewpoint

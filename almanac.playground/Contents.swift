@@ -41,18 +41,19 @@ class AlmanacParser {
      - Returns: A single almanac struct.
      */
     
-    func almanacFrom(json: [String: AnyObject]?) -> Almanac? {
+    func almanacFrom(json: [String: Any]?) -> Almanac? {
         
         let key = units == 0 ? "F" : "C"
         
-        guard let code = json?["almanac"]?["airport_code"] as? String else { return nil }
+        guard let almanac = json?["almanac"] as? [String: Any] else { return nil }
+        guard let code = almanac["airport_code"] as? String else { return nil }
         
-        guard let dictH = json?["almanac"]?["temp_high"] as? [String: AnyObject] else { return nil }
+        guard let dictH = almanac["temp_high"] as? [String: AnyObject] else { return nil }
         guard let normH = dictH["normal"]?[key] as? String else { return nil }
         guard let recH = dictH["record"]?[key] as? String else { return nil }
         guard let recyrH = dictH["recordyear"] as? String else { return nil }
 
-        guard let dictL = json?["almanac"]?["temp_low"] as? [String: AnyObject] else { return nil }
+        guard let dictL = almanac["temp_low"] as? [String: AnyObject] else { return nil }
         guard let normL = dictL["normal"]?[key] as? String else { return nil }
         guard let recL = dictL["record"]?[key] as? String else { return nil }
         guard let recyrL = dictL["recordyear"] as? String else { return nil }
@@ -65,20 +66,20 @@ class AlmanacParser {
 // Example
 // -----------------------------------------------------------------------------
 
-let file = NSBundle.mainBundle().pathForResource("almanac", ofType: "json")
-let data = NSData(contentsOfFile: file!)
+let file = Bundle.main.url(forResource: "almanac", withExtension: "json")
+let data = try Data(contentsOf: file!)
 
-let json: [String: AnyObject]?
+let json: [String: Any]?
 
 do {
-    json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-} catch let error as NSError {
+    json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+} catch {
     json = nil
-    print("error is \(error.localizedDescription)")
+    print("Error is \(error.localizedDescription)")
 }
 
 let parser = AlmanacParser()
-let almanac = parser.almanacFrom(json)
+let almanac = parser.almanacFrom(json: json!)
 
 almanac?.airportCode
 almanac?.normalHigh
