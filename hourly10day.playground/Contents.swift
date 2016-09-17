@@ -23,6 +23,12 @@ struct Hourly {
     let pop: String
 }
 
+struct HourlyWind {
+    let speed: String
+    let direction: String
+    let degrees: String
+}
+
 // Parser
 // -----------------------------------------------------------------------------
 
@@ -36,9 +42,8 @@ class HourlyParser {
      - Returns: Array of hourly structs.
      */
     
-    func hourlyForecastFrom(json: [String: Any]?) -> [Hourly]? {
+    func hourlyForecastFrom(_ json: [String: Any]) -> [Hourly]? {
         
-        guard let json = json else { return nil }
         guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
         
         var hourly = [Hourly]()
@@ -53,6 +58,26 @@ class HourlyParser {
             guard let tp = temp[keyUnits] else { return nil }
             guard let pp = hour["pop"] as? String else { return nil }
             let hrly = Hourly(yday: yd, hourcivil: hr, temp: tp, pop: pp)
+            hourly.append(hrly)
+        }
+        
+        return hourly.count > 0 ? hourly : nil
+    }
+    
+    func hourlyWindFrom(_ json: [String: Any]) -> [HourlyWind]? {
+        guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
+
+        var hourly = [HourlyWind]()
+        let keyUnits = units == 0 ? "english" : "metric"
+        
+        for hour in hourlyArray {
+            guard let wspd = hour["wspd"] as? [String: String] else { return nil }
+            guard let wdir = hour["wdir"] as? [String: String] else { return nil }
+            
+            guard let sp = wspd[keyUnits] else { return nil }
+            guard let dir = wdir["dir"] else { return nil }
+            guard let deg = wdir["degrees"] else { return nil }
+            let hrly = HourlyWind(speed: sp, direction: dir, degrees: deg)
             hourly.append(hrly)
         }
         
@@ -77,10 +102,18 @@ do {
 }
 
 let parser = HourlyParser()
-let hourly = parser.hourlyForecastFrom(json: json!)
+
+let hourly = parser.hourlyForecastFrom(json!)
 
 hourly?.count
 hourly?[0].yday
 hourly?[0].hourcivil
 hourly?[0].temp
 hourly?[0].pop
+
+let hourlyWind = parser.hourlyWindFrom(json!)
+
+hourlyWind?.count
+hourlyWind?[0].speed
+hourlyWind?[0].direction
+hourlyWind?[0].degrees
