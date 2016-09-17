@@ -38,19 +38,21 @@ class HourlyParser {
     
     func hourlyForecastFrom(json: [String: Any]?) -> [Hourly]? {
         
-        guard let hourlyArray = json?["hourly_forecast"] as? [[String: AnyObject]] else { return nil }
+        guard let hourlyArray = json?["hourly_forecast"] as? [[String: Any]] else { return nil }
         
         var hourly = [Hourly]()
         let keyUnits = units == 0 ? "english" : "metric"
         
         for hour in hourlyArray {
-            if let yd = hour["FCTTIME"]?["yday"] as? String,
-            let hr = hour["FCTTIME"]?["civil"] as? String,
-            let tp = hour["temp"]?[keyUnits] as? String,
-            let pp = hour["pop"] as? String {
-                let hrly = Hourly(yday: yd, hourcivil: hr, temp: tp, pop: pp)
-                hourly.append(hrly)
-            }
+            guard let fcttime = hour["FCTTIME"] as? [String: Any] else { return nil }
+            guard let temp = hour["temp"] as? [String: Any] else { return nil }
+            
+            guard let yd = fcttime["yday"] as? String else { return nil }
+            guard let hr = fcttime["civil"] as? String else { return nil }
+            guard let tp = temp[keyUnits] as? String else { return nil }
+            guard let pp = hour["pop"] as? String else { return nil }
+            let hrly = Hourly(yday: yd, hourcivil: hr, temp: tp, pop: pp)
+            hourly.append(hrly)
         }
         
         return hourly.count > 0 ? hourly : nil
