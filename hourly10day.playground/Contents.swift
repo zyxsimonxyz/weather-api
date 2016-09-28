@@ -20,6 +20,7 @@ struct Hourly {
     let yday: String
     let hourcivil: String
     let temp: String
+    let humidity: String
     let pop: String
 }
 
@@ -56,8 +57,9 @@ class HourlyParser {
             guard let yd = fcttime["yday"] else { return nil }
             guard let hr = fcttime["civil"] else { return nil }
             guard let tp = temp[keyUnits] else { return nil }
+            guard let hm = hour["humidity"] as? String else { return nil }
             guard let pp = hour["pop"] as? String else { return nil }
-            let hrly = Hourly(yday: yd, hourcivil: hr, temp: tp, pop: pp)
+            let hrly = Hourly(yday: yd, hourcivil: hr, temp: tp, humidity: hm, pop: pp)
             hourly.append(hrly)
         }
         
@@ -109,6 +111,7 @@ hourly?.count
 hourly?[0].yday
 hourly?[0].hourcivil
 hourly?[0].temp
+hourly?[0].humidity
 hourly?[0].pop
 
 let hourlyWind = parser.hourlyWindFrom(json!)
