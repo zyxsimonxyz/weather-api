@@ -6,15 +6,10 @@ API][]. Parsing examples are provided for the following features of the API:
 - alerts
 - almanac
 - astronomy
-- autocomplete
 - conditions
 - currenthurricane
 - forecast10day
 - hourly10day
-
-An iOS application is available in the **AutoCompleteAPI** project to
-demonstrate the autocomplete API. This app lists matching locations as the user
-types the name or zip code of a location.
 
 [Weather Underground API]: http://www.wunderground.com
 
