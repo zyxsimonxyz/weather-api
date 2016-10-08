@@ -26,39 +26,39 @@ struct Almanac {
     let recordYearLow: String
 }
 
-// Parser
-// -----------------------------------------------------------------------------
-
-class AlmanacParser {
+extension Almanac {
     
-    // unit of 0 for Fahrenheight, unit of 1 for Celsius
+    /// Initialize almanac model from JSON data.
+    /// - parameter json: JSON data
     
-    let units = 0
-    
-    /**
-     Parse almanac returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: A single almanac struct.
-     */
-    
-    func almanacFrom(json: [String: Any]?) -> Almanac? {
+    init?(json: [String: Any]) {
         
-        let key = units == 0 ? "F" : "C"
+        // extract dictionaries from json data
+        guard let almanac = json["almanac"] as? [String: Any] else { return nil }
+        guard let high = almanac["temp_high"] as? [String: Any] else { return nil }
+        guard let normHigh = high["normal"] as? [String: Any] else { return nil }
+        guard let recHigh = high["record"] as? [String: Any] else { return nil }
+        guard let low = almanac["temp_low"] as? [String: Any] else { return nil }
+        guard let normLow = low["normal"] as? [String: Any] else { return nil }
+        guard let recLow = low["record"] as? [String: Any] else { return nil }
         
-        guard let almanac = json?["almanac"] as? [String: Any] else { return nil }
+        // extract values from dictionaries
         guard let code = almanac["airport_code"] as? String else { return nil }
+        guard let normHighValue = normHigh["F"] as? String else { return nil }
+        guard let recHighValue = recHigh["F"] as? String else { return nil }
+        guard let recHighYear = high["recordyear"] as? String else { return nil }
+        guard let normLowValue = normLow["F"] as? String else { return nil }
+        guard let recLowValue = recLow["F"] as? String else { return nil }
+        guard let recLowYear = low["recordyear"] as? String else { return nil }
         
-        guard let dictH = almanac["temp_high"] as? [String: AnyObject] else { return nil }
-        guard let normH = dictH["normal"]?[key] as? String else { return nil }
-        guard let recH = dictH["record"]?[key] as? String else { return nil }
-        guard let recyrH = dictH["recordyear"] as? String else { return nil }
-
-        guard let dictL = almanac["temp_low"] as? [String: AnyObject] else { return nil }
-        guard let normL = dictL["normal"]?[key] as? String else { return nil }
-        guard let recL = dictL["record"]?[key] as? String else { return nil }
-        guard let recyrL = dictL["recordyear"] as? String else { return nil }
-        
-        return Almanac(airportCode: code, normalHigh: normH, recordHigh: recH, recordYearHigh: recyrH, normalLow: normL, recordLow: recL, recordYearLow: recyrL)
+        // set struct properties from extracted values
+        self.airportCode = code
+        self.normalHigh = normHighValue
+        self.recordHigh = recHighValue
+        self.recordYearHigh = recHighYear
+        self.normalLow = normLowValue
+        self.recordLow = recLowValue
+        self.recordYearLow = recLowYear
     }
     
 }
@@ -78,9 +78,7 @@ do {
     print("Error is \(error.localizedDescription)")
 }
 
-let parser = AlmanacParser()
-let almanac = parser.almanacFrom(json: json!)
-
+let almanac = Almanac(json: json!)
 almanac?.airportCode
 almanac?.normalHigh
 almanac?.recordHigh
@@ -88,3 +86,4 @@ almanac?.recordYearHigh
 almanac?.normalLow
 almanac?.recordLow
 almanac?.recordYearLow
+
