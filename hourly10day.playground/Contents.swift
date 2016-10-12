@@ -13,7 +13,7 @@ https://www.wunderground.com/weather/api/d/docs
 
 import UIKit
 
-// Model
+// Models
 // -----------------------------------------------------------------------------
 
 struct Hourly {
@@ -24,68 +24,94 @@ struct Hourly {
     let pop: String
 }
 
+extension Hourly {
+    
+    // Initialize an Hourly struct from JSON data
+    
+    init?(json: [String: Any]) {
+        
+        // extract dictionaries
+        guard let fcttime = json["FCTTIME"] as? [String: String] else { return nil }
+        guard let temp = json["temp"] as? [String: String] else { return nil }
+        
+        // extract values from dictionaries
+        guard let yd = fcttime["yday"] else { return nil }
+        guard let hr = fcttime["civil"] else { return nil }
+        guard let tp = temp["english"] else { return nil }
+        guard let hm = json["humidity"] as? String else { return nil }
+        guard let pp = json["pop"] as? String else { return nil }
+        
+        // set struct properties
+        self.yday = yd
+        self.hourcivil = hr
+        self.temp = tp
+        self.humidity = hm
+        self.pop = pp
+    }
+    
+    // Return an array of Hourly structs from JSON data
+    
+    static func hourlyArray(json: [String: Any]) -> [Hourly]? {
+        
+        guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
+        
+        var hourly = [Hourly]()
+        
+        for hour in hourlyArray {
+            guard let hrly = Hourly(json: hour) else { return nil }
+            hourly.append(hrly)
+        }
+        
+        return hourly.count > 0 ? hourly : nil
+    }
+    
+}
+
+// ---
+
 struct HourlyWind {
     let speed: String
     let direction: String
     let degrees: String
 }
 
-// Parser
-// -----------------------------------------------------------------------------
-
-class HourlyParser {
+extension HourlyWind {
     
-    let units = 0
+    // Initialize an HourlyWind struct from JSON data
     
-    /**
-     Parse the hourly 10 day forecast returned as json data from Weather Underground.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of hourly structs.
-     */
+    init?(json: [String: Any]) {
+        
+        // extract dictionaries
+        guard let wspd = json["wspd"] as? [String: String] else { return nil }
+        guard let wdir = json["wdir"] as? [String: String] else { return nil }
+        
+        // extract values from dictionaries
+        guard let spd = wspd["english"] else { return nil }
+        guard let dir = wdir["dir"] else { return nil }
+        guard let deg = wdir["degrees"] else { return nil }
+        
+        // set struct properties
+        self.speed = spd
+        self.direction = dir
+        self.degrees = deg
+    }
     
-    func hourlyForecastFrom(_ json: [String: Any]) -> [Hourly]? {
+    // Return an array of HourlyWind structs from JSON data
+    
+    static func hourlyWindArray(json: [String: Any]) -> [HourlyWind]? {
         
         guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
         
-        var hourly = [Hourly]()
-        let keyUnits = units == 0 ? "english" : "metric"
+        var hourlyWindArray = [HourlyWind]()
         
         for hour in hourlyArray {
-            guard let fcttime = hour["FCTTIME"] as? [String: String] else { return nil }
-            guard let temp = hour["temp"] as? [String: String] else { return nil }
-            
-            guard let yd = fcttime["yday"] else { return nil }
-            guard let hr = fcttime["civil"] else { return nil }
-            guard let tp = temp[keyUnits] else { return nil }
-            guard let hm = hour["humidity"] as? String else { return nil }
-            guard let pp = hour["pop"] as? String else { return nil }
-            let hrly = Hourly(yday: yd, hourcivil: hr, temp: tp, humidity: hm, pop: pp)
-            hourly.append(hrly)
+            guard let hourlyWind = HourlyWind(json: hour) else { return nil }
+            hourlyWindArray.append(hourlyWind)
         }
         
-        return hourly.count > 0 ? hourly : nil
+        return hourlyWindArray.count > 0 ? hourlyWindArray : nil
     }
     
-    func hourlyWindFrom(_ json: [String: Any]) -> [HourlyWind]? {
-        guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
-
-        var hourly = [HourlyWind]()
-        let keyUnits = units == 0 ? "english" : "metric"
-        
-        for hour in hourlyArray {
-            guard let wspd = hour["wspd"] as? [String: String] else { return nil }
-            guard let wdir = hour["wdir"] as? [String: String] else { return nil }
-            
-            guard let sp = wspd[keyUnits] else { return nil }
-            guard let dir = wdir["dir"] else { return nil }
-            guard let deg = wdir["degrees"] else { return nil }
-            let hrly = HourlyWind(speed: sp, direction: dir, degrees: deg)
-            hourly.append(hrly)
-        }
-        
-        return hourly.count > 0 ? hourly : nil
-    }
-
 }
 
 // Example
@@ -103,20 +129,18 @@ do {
     print("Error is \(error.localizedDescription)")
 }
 
-let parser = HourlyParser()
+let hourlyArray = Hourly.hourlyArray(json: json!)
 
-let hourly = parser.hourlyForecastFrom(json!)
+hourlyArray?.count
+hourlyArray?[0].yday
+hourlyArray?[0].hourcivil
+hourlyArray?[0].temp
+hourlyArray?[0].humidity
+hourlyArray?[0].pop
 
-hourly?.count
-hourly?[0].yday
-hourly?[0].hourcivil
-hourly?[0].temp
-hourly?[0].humidity
-hourly?[0].pop
+let hourlyWindArray = HourlyWind.hourlyWindArray(json: json!)
 
-let hourlyWind = parser.hourlyWindFrom(json!)
-
-hourlyWind?.count
-hourlyWind?[0].speed
-hourlyWind?[0].direction
-hourlyWind?[0].degrees
+hourlyWindArray?.count
+hourlyWindArray?[0].speed
+hourlyWindArray?[0].direction
+hourlyWindArray?[0].degrees
