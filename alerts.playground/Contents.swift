@@ -51,7 +51,7 @@ extension Alert {
     static func alertArray(json: [String: Any]) -> [Alert]? {
         guard let alertArray = json["alerts"] as? [[String: Any]] else { return nil }
         let alerts = alertArray.flatMap{ Alert(json: $0) }
-        return alerts
+        return alerts.count > 0 ? alerts : nil  // if array has no elements return nil
     }
     
 }

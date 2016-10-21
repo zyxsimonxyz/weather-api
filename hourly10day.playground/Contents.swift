@@ -56,7 +56,7 @@ extension Hourly {
     static func hourlyArray(json: [String: Any]) -> [Hourly]? {
         guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
         let hourly = hourlyArray.flatMap{ Hourly(json: $0) }
-        return hourly
+        return hourly.count > 239 ? hourly : nil  // if array is missing an element return nil
     }
     
 }
@@ -96,7 +96,8 @@ extension HourlyWind {
     static func hourlyWindArray(json: [String: Any]) -> [HourlyWind]? {
         guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
         let hourlyWind = hourlyArray.flatMap{ HourlyWind(json: $0) }
-        return hourlyWind
+        return hourlyWind.count > 239 ? hourlyWind : nil  // if array is missing an element return nil
+
     }
     
 }
