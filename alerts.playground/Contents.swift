@@ -23,41 +23,41 @@ struct Alert {
     let message: String
 }
 
-// Parser
-// ----------------------------------------------------------------------
-
-class AlertsParser {
+extension Alert {
     
-    /**
-     Parse alerts returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of alert structs.
-     */
+    /// Initialize Alert model from JSON data.
+    /// - parameter json: JSON data
     
-    func alertsFrom(json: [String: Any]?) -> [Alert]? {
+    init?(json: [String: Any]) {
         
-        var alerts = [Alert]()
-
-        guard let alertsArray = json?["alerts"] as? [[String: AnyObject]] else { return nil }
+        // extract values from json data
+        guard let type = json["type"] as? String else { return nil }
+        guard let date = json["date"] as? String else { return nil }
+        guard let desc = json["description"] as? String else { return nil }
+        guard let expr = json["expires"] as? String else { return nil }
+        guard let mess = json["message"] as? String else { return nil }
         
-        for alert in alertsArray {
-            if let type = alert["type"] as? String,
-            let date = alert["date"] as? String,
-            let des = alert["description"] as? String,
-            let exp = alert["expires"] as? String,
-            let mes = alert["message"] as? String {
-                let alt = Alert(type: type, date: date, description: des, expires: exp, message: mes)
-                alerts.append(alt)
-            }
-        }
-        
-        return alerts.count > 0 ? alerts : nil
+        // set struct properties
+        self.type = type
+        self.date = date
+        self.description = desc
+        self.expires = expr
+        self.message = mess
+    }
+    
+    /// An array of Alert structs from JSON data.
+    /// - parameter json: JSON data
+    
+    static func alertArray(json: [String: Any]) -> [Alert]? {
+        guard let alertArray = json["alerts"] as? [[String: Any]] else { return nil }
+        let alerts = alertArray.flatMap{ Alert(json: $0) }
+        return alerts
     }
     
 }
 
 // Example
-// ----------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 let file = Bundle.main.url(forResource: "alerts", withExtension: "json")
 let data = try Data(contentsOf: file!)
@@ -71,8 +71,7 @@ do {
     print("Error is \(error.localizedDescription)")
 }
 
-let parser = AlertsParser()
-let alerts = parser.alertsFrom(json: json!)
+let alerts = Alert.alertArray(json: json!)
 
 alerts?.count
 alerts?[0].type
@@ -80,3 +79,4 @@ alerts?[0].date
 alerts?[0].description
 alerts?[0].expires
 alerts?[0].message
+
