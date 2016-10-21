@@ -26,7 +26,8 @@ struct Hourly {
 
 extension Hourly {
     
-    // Initialize an Hourly struct from JSON data
+    /// Initialize Hourly struct from JSON data
+    /// - parameter json: JSON data
     
     init?(json: [String: Any]) {
         
@@ -49,25 +50,17 @@ extension Hourly {
         self.pop = pp
     }
     
-    // Return an array of Hourly structs from JSON data
+    /// An array of Hourly structs from JSON data.
+    /// - parameter json: JSON data
     
     static func hourlyArray(json: [String: Any]) -> [Hourly]? {
-        
         guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
-        
-        var hourly = [Hourly]()
-        
-        for hour in hourlyArray {
-            guard let hrly = Hourly(json: hour) else { return nil }
-            hourly.append(hrly)
-        }
-        
-        return hourly.count > 0 ? hourly : nil
+        let hourly = hourlyArray.flatMap{ Hourly(json: $0) }
+        return hourly
     }
     
 }
 
-// ---
 
 struct HourlyWind {
     let speed: String
@@ -77,7 +70,8 @@ struct HourlyWind {
 
 extension HourlyWind {
     
-    // Initialize an HourlyWind struct from JSON data
+    /// Initialize HourlyWind struct from JSON data
+    /// - parameter json: JSON data
     
     init?(json: [String: Any]) {
         
@@ -96,20 +90,13 @@ extension HourlyWind {
         self.degrees = deg
     }
     
-    // Return an array of HourlyWind structs from JSON data
+    /// An array of HourlyWind structs from JSON data.
+    /// - parameter json: JSON data
     
     static func hourlyWindArray(json: [String: Any]) -> [HourlyWind]? {
-        
         guard let hourlyArray = json["hourly_forecast"] as? [[String: Any]] else { return nil }
-        
-        var hourlyWindArray = [HourlyWind]()
-        
-        for hour in hourlyArray {
-            guard let hourlyWind = HourlyWind(json: hour) else { return nil }
-            hourlyWindArray.append(hourlyWind)
-        }
-        
-        return hourlyWindArray.count > 0 ? hourlyWindArray : nil
+        let hourlyWind = hourlyArray.flatMap{ HourlyWind(json: $0) }
+        return hourlyWind
     }
     
 }
@@ -129,18 +116,18 @@ do {
     print("Error is \(error.localizedDescription)")
 }
 
-let hourlyArray = Hourly.hourlyArray(json: json!)
+let hourly = Hourly.hourlyArray(json: json!)
 
-hourlyArray?.count
-hourlyArray?[0].yday
-hourlyArray?[0].hourcivil
-hourlyArray?[0].temp
-hourlyArray?[0].humidity
-hourlyArray?[0].pop
+hourly?.count
+hourly?[0].yday
+hourly?[0].hourcivil
+hourly?[0].temp
+hourly?[0].humidity
+hourly?[0].pop
 
-let hourlyWindArray = HourlyWind.hourlyWindArray(json: json!)
+let hourlyWind = HourlyWind.hourlyWindArray(json: json!)
 
-hourlyWindArray?.count
-hourlyWindArray?[0].speed
-hourlyWindArray?[0].direction
-hourlyWindArray?[0].degrees
+hourlyWind?.count
+hourlyWind?[0].speed
+hourlyWind?[0].direction
+hourlyWind?[0].degrees
