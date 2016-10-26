@@ -13,7 +13,7 @@ https://www.wunderground.com/weather/api/d/docs
 
 import UIKit
 
-// Model
+// Models
 // -----------------------------------------------------------------------------
 
 struct StormInfo {
@@ -22,6 +22,38 @@ struct StormInfo {
     let number: String
 }
 
+extension StormInfo {
+    
+    /// Initialize StormInfo model from JSON data.
+    /// - parameter json: JSON data
+    
+    init?(json: [String: Any]) {
+        
+        // extract dictionary from json data
+        guard let storm = json["stormInfo"] as? [String: Any] else { return nil }
+        
+        // extract values from dictionary
+        guard let name = storm["stormName"] as? String else { return nil }
+        guard let namen = storm["stormName_Nice"] as? String else { return nil }
+        guard let num = storm["stormNumber"] as? String else { return nil }
+        
+        // set struct properties
+        self.name = name
+        self.nameNice = namen
+        self.number = num
+    }
+    
+    /// An array of Alert structs from JSON data.
+    /// - parameter json: JSON data
+    
+    static func stormInfoArray(json: [String: Any]) -> [StormInfo]? {
+        guard let stormArray = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
+        let storms = stormArray.flatMap{ StormInfo(json: $0) }
+        return storms.count > 0 ? storms : nil  // if array has no elements return nil
+    }
+}
+
+
 struct Current {
     let lat: Float
     let lon: Float
@@ -29,60 +61,37 @@ struct Current {
     let category: String
 }
 
-// Parser
-// -----------------------------------------------------------------------------
-
-class HurricaneParser {
+extension Current {
     
-    /**
-     Parse storm information returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of storm info structs.
-     */
+    /// Initialize Current model from JSON data.
+    /// - parameter json: JSON data
     
-    func stormInfo(json: [String: Any]?) -> [StormInfo]? {
+    init?(json: [String: Any]) {
         
-        guard let json = json else { return nil }
-        guard let storms = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
+        // extract dictionary from json data
+        guard let current = json["Current"] as? [String: Any] else { return nil }
         
-        var storminfo = [StormInfo]()
+        // extract values from dictionary
+        guard let lat = current["lat"] as? Float else { return nil }
+        guard let lon = current["lon"] as? Float else { return nil }
+        guard let saff = current["SaffirSimpsonCategory"] as? Float else { return nil }
+        guard let cat = current["Category"] as? String else { return nil }
         
-        for storm in storms {
-            guard let name = storm["stormInfo"]?["stormName"] as? String else { return nil }
-            guard let namen = storm["stormInfo"]?["stormName_Nice"] as? String else { return nil }
-            guard let num = storm["stormInfo"]?["stormNumber"] as? String else { return nil }
-            let si = StormInfo(name: name, nameNice: namen, number: num)
-            storminfo.append(si)
-        }
-        
-        return storminfo.count > 0 ? storminfo : nil
+        // set struct properties
+        self.lat = lat
+        self.lon = lon
+        self.saffcategory = saff
+        self.category = cat
     }
     
-    /**
-     Parse current information returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of current info structs.
-     */
+    /// An array of Current structs from JSON data.
+    /// - parameter json: JSON data
     
-    func currInfo(json: [String: Any]?) -> [Current]? {
-        
-        guard let json = json else { return nil }
-        guard let currentsArray = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
-        
-        var currents = [Current]()
-        
-        for current in currentsArray {
-            guard let lat = current["Current"]?["lat"] as? Float else { return nil }
-            guard let lon = current["Current"]?["lon"] as? Float else { return nil }
-            guard let saff = current["Current"]?["SaffirSimpsonCategory"] as? Float else { return nil }
-            guard let cat = current["Current"]?["Category"] as? String else { return nil }
-            let cu = Current(lat: lat, lon: lon, saffcategory: saff, category: cat)
-            currents.append(cu)
-        }
-        
-        return currents.count > 0 ? currents : nil
+    static func currentArray(json: [String: Any]) -> [Current]? {
+        guard let currentArray = json["currenthurricane"] as? [[String: AnyObject]] else { return nil }
+        let hurricanes = currentArray.flatMap{ Current(json: $0) }
+        return hurricanes.count > 0 ? hurricanes : nil  // if array has no elements return nil
     }
-    
 }
 
 // Example
@@ -100,9 +109,7 @@ do {
     print("Error is \(error.localizedDescription)")
 }
 
-let parser = HurricaneParser()
-
-let storminf = parser.stormInfo(json: json!)
+let storminf = StormInfo.stormInfoArray(json: json!)
 
 storminf?[0].name
 storminf?[0].nameNice
@@ -112,7 +119,7 @@ storminf?[1].name
 storminf?[1].nameNice
 storminf?[1].number
 
-let current = parser.currInfo(json: json!)
+let current = Current.currentArray(json: json!)
 
 current?[0].lat
 current?[0].lon
