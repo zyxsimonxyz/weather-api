@@ -23,35 +23,33 @@ struct Location {
     let longitude: String
 }
 
-// Parser
-// -----------------------------------------------------------------------------
-
-class LocationsParser {
+extension Location {
     
-    /**
-     Parse locations returned as json data from Autocomplete API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of location structs.
-     */
+    /// Initialize Location model from JSON data.
+    /// - parameter json: JSON data
     
-    func locationsFrom(json: [String: Any]?) -> [Location]? {
+    init?(json: [String: Any]) {
         
-        guard let json = json else { return nil }
-        guard let locationsArray = json["RESULTS"] as? [[String: AnyObject]] else { return nil }
+        // extract values from json data
+        guard let name = json["name"] as? String else { return nil }
+        guard let tz = json["tzs"] as? String else { return nil }
+        guard let lat = json["lat"] as? String else { return nil }
+        guard let lon = json["lon"] as? String else { return nil }
         
-        var locations = [Location]()
-        
-        for loc in locationsArray {
-            guard let name = loc["name"] as? String else { return nil }
-            guard let tz = loc["tzs"] as? String else { return nil }
-            guard let lat = loc["lat"] as? String else { return nil }
-            guard let lon = loc["lon"] as? String else { return nil }
-
-            let lc = Location(name: name, timezone: tz, latitude: lat, longitude: lon)
-            locations.append(lc)
-        }
-        
-        return locations.count > 0 ? locations : nil
+        // set struct properties
+        self.name = name
+        self.timezone = tz
+        self.latitude = lat
+        self.longitude = lon
+    }
+    
+    /// An array of Location structs from JSON data.
+    /// - parameter json: JSON data
+    
+    static func locationArray(json: [String: Any]) -> [Location]? {
+        guard let locations = json["RESULTS"] as? [[String: Any]] else { return nil }
+        let locs = locations.flatMap{ Location(json: $0) }
+        return locs.count > 0 ? locs : nil  // if array has no elements return nil
     }
     
 }
@@ -71,11 +69,11 @@ do {
     print("Error is \(error.localizedDescription)")
 }
 
-let parser = LocationsParser()
-let locations = parser.locationsFrom(json: json!)
+let locations = Location.locationArray(json: json!)
 
 locations?.count
 locations?[0].name
 locations?[0].timezone
 locations?[0].latitude
 locations?[0].longitude
+
