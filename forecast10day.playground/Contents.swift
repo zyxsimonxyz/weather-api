@@ -13,7 +13,7 @@ https://www.wunderground.com/weather/api/d/docs
 
 import UIKit
 
-// Model
+// Models
 // -----------------------------------------------------------------------------
 
 struct ForecastText {
@@ -23,11 +23,78 @@ struct ForecastText {
     let pop: String
 }
 
+extension ForecastText {
+    
+    /// Initialize ForecastText model from JSON data.
+    /// - parameter json: JSON data
+    
+    init?(json: [String: Any]) {
+        
+        // extract values from json data
+        guard let ic = json["icon"] as? String else { return nil }
+        guard let ti = json["title"] as? String else { return nil }
+        guard let te = json["fcttext"] as? String else { return nil }
+        guard let po = json["pop"] as? String else { return nil }
+        
+        // set struct properties
+        self.icon = ic
+        self.title = ti
+        self.text = te
+        self.pop = po
+    }
+    
+    /// An array of ForecastText structs from JSON data.
+    /// - parameter json: JSON data
+    
+    static func forecastTextArray(json: [String: Any]) -> [ForecastText]? {
+        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
+        guard let txtforecast = forecast["txt_forecast"] as? [String: Any] else { return nil }
+        guard let forecastArray = txtforecast["forecastday"] as? [[String: Any]] else { return nil }
+        let forecasts = forecastArray.flatMap{ ForecastText(json: $0) }
+        return forecasts.count > 0 ? forecasts : nil    // if array has no elements return nil
+    }
+}
+
+
 struct ForecastDate {
     let yday: Int
     let weekdayShort: String
     let weekday: String
 }
+
+extension ForecastDate {
+    
+    /// Initialize ForecastDate model from JSON data.
+    /// - parameter json: JSON data
+    
+    init?(json: [String: Any]) {
+        
+        // extract dictionary from json data
+        guard let date = json["date"] as? [String: Any] else { return nil }
+
+        // extract values from dictionary
+        guard let yd = date["yday"] as? Int else { return nil }
+        guard let dayshort = date["weekday_short"] as? String else { return nil }
+        guard let day = date["weekday"] as? String else { return nil }
+        
+        // set struct properties
+        self.yday = yd
+        self.weekdayShort = dayshort
+        self.weekday = day
+    }
+    
+    /// An array of ForecastDate structs from JSON data.
+    /// - parameter json: JSON data
+    
+    static func forecastDateArray(json: [String: Any]) -> [ForecastDate]? {
+        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
+        guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
+        guard let forecastArray = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
+        let forecasts = forecastArray.flatMap{ ForecastDate(json: $0) }
+        return forecasts.count > 0 ? forecasts : nil    // if array has no elements return nil
+    }
+}
+
 
 struct ForecastDetail {
     let high: String
@@ -38,6 +105,47 @@ struct ForecastDetail {
     let humidity: Float
 }
 
+extension ForecastDetail {
+    
+    /// Initialize ForecastDetail model from JSON data.
+    /// - parameter json: JSON data
+    
+    init?(json: [String: Any]) {
+        
+        // extract dictionaries from json data
+        guard let high = json["high"] as? [String: Any] else { return nil }
+        guard let low = json["low"] as? [String: Any] else { return nil }
+        
+        // extract values from dictionaries
+        guard let hi = high["fahrenheit"] as? String else { return nil }
+        guard let lo = low["fahrenheit"] as? String else { return nil }
+        guard let co = json["conditions"] as? String else { return nil }
+        guard let ic = json["icon"] as? String else { return nil }
+        guard let po = json["pop"] as? Float else { return nil }
+        guard let hu = json["avehumidity"] as? Float else { return nil }
+        
+        // set struct properties
+        self.high = hi
+        self.low = lo
+        self.conditions = co
+        self.icon = ic
+        self.pop = po
+        self.humidity = hu
+    }
+    
+    /// An array of ForecastDetail structs from JSON data.
+    /// - parameter json: JSON data
+    
+    static func forecastDetialArray(json: [String: Any]) -> [ForecastDetail]? {
+        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
+        guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
+        guard let forecastArray = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
+        let forecasts = forecastArray.flatMap{ ForecastDetail(json: $0) }
+        return forecasts.count > 0 ? forecasts : nil    // if array has no elements return nil
+    }
+}
+
+
 struct ForecastPrecip {
     let qpfAllDay: Float
     let qpfDay: Float?
@@ -46,6 +154,51 @@ struct ForecastPrecip {
     let snowDay: Float?
     let snowNight: Float?
 }
+
+extension ForecastPrecip {
+    
+    /// Initialize ForecastPrecip model from JSON data.
+    /// - parameter json: JSON data
+    
+    init?(json: [String: Any]) {
+        
+        // extract dictionaries from json data
+        guard let qpfallday = json["qpf_allday"] as? [String: Any] else { return nil }
+        guard let qpfday = json["qpf_day"] as? [String: Any] else { return nil }
+        guard let qpfnight = json["qpf_night"] as? [String: Any] else { return nil }
+        guard let snowallday = json["snow_allday"] as? [String: Any] else { return nil }
+        guard let snowday = json["snow_day"] as? [String: Any] else { return nil }
+        guard let snownight = json["snow_night"] as? [String: Any] else { return nil }
+        
+        // extract values from dictionaries
+        guard let qa = qpfallday["in"] as? Float else { return nil }
+        let qd = qpfday["in"] as? Float
+        let qn = qpfnight["in"] as? Float
+        guard let sa = snowallday["in"] as? Float else { return nil }
+        let sd = snowday["in"] as? Float
+        let sn = snownight["in"] as? Float
+        
+        // set struct properties
+        self.qpfAllDay = qa
+        self.qpfDay = qd
+        self.qpfNight = qn
+        self.snowAllDay = sa
+        self.snowDay = sd
+        self.snowNight = sn
+    }
+    
+    /// An array of ForecastPrecip structs from JSON data.
+    /// - parameter json: JSON data
+    
+    static func forecastPrecipArray(json: [String: Any]) -> [ForecastPrecip]? {
+        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
+        guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
+        guard let forecastArray = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
+        let forecasts = forecastArray.flatMap{ ForecastPrecip(json: $0) }
+        return forecasts.count > 0 ? forecasts : nil    // if array has no elements return nil
+    }
+}
+
 
 struct ForecastWind {
     let maxSpeed: Float
@@ -56,180 +209,46 @@ struct ForecastWind {
     let avgDeg: Float
 }
 
-// Parser
-// -----------------------------------------------------------------------------
-
-class ForecastParser {
+extension ForecastWind {
     
-    let units = 0
+    /// Initialize ForecastWind model from JSON data.
+    /// - parameter json: JSON data
     
-    /**
-     Parse the forecast text returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of forecast text structs.
-     */
-    
-    func forecastTextFrom(json: [String: Any]?) -> [ForecastText]? {
+    init?(json: [String: Any]) {
         
-        guard let json = json else { return nil }
-        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
-        guard let txtforecast = forecast["txt_forecast"] as? [String: Any] else { return nil }
-        guard let forecastday = txtforecast["forecastday"] as? [[String: Any]] else { return nil }
+        // extract dictionaries from json data
+        guard let maxwind = json["maxwind"] as? [String: Any] else { return nil }
+        guard let avewind = json["avewind"] as? [String: Any] else { return nil }
         
-        var forecasts = [ForecastText]()
+        // extract values from dictionaries
+        guard let ms = maxwind["mph"] as? Float else { return nil }
+        guard let md = maxwind["dir"] as? String else { return nil }
+        guard let mde = maxwind["degrees"] as? Float else { return nil }
+        guard let asp = avewind["mph"] as? Float else { return nil }
+        guard let ad = avewind["dir"] as? String else { return nil }
+        guard let ade = avewind["degrees"] as? Float else { return nil }
         
-        for forecast in forecastday {
-            guard let ic = forecast["icon"] as? String else { return nil }
-            guard let ti = forecast["title"] as? String else { return nil }
-            
-            let keyT = units == 0 ? "fcttext" : "fcttext_metric"
-            guard let te = forecast[keyT] as? String else { return nil }
-            
-            guard let po = forecast["pop"] as? String else { return nil }
-            
-            let fo = ForecastText(icon: ic, title: ti, text: te, pop: po)
-            forecasts.append(fo)
-        }
-        
-        return forecasts.count > 0 ? forecasts : nil
+        // set struct properties
+        self.maxSpeed = ms
+        self.maxDir = md
+        self.maxDeg = mde
+        self.avgSpeed = asp
+        self.avgDir = ad
+        self.avgDeg = ade
     }
     
-    /**
-     Parse the forecast date returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of forecast dates as structs.
-     */
+    /// An array of ForecastWind structs from JSON data.
+    /// - parameter json: JSON data
     
-    func forecastDateFrom(json: [String: Any]?) -> [ForecastDate]? {
-        
-        guard let json = json else { return nil }
+    static func forecastWindArray(json: [String: Any]) -> [ForecastWind]? {
         guard let forecast = json["forecast"] as? [String: Any] else { return nil }
         guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
-        guard let forecastday = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
-        
-        var forecasts = [ForecastDate]()
-        
-        for forecast in forecastday {
-            guard let date = forecast["date"] as? [String: Any] else { return nil }
-            guard let yd = date["yday"] as? Int else { return nil }
-            guard let dayshort = date["weekday_short"] as? String else { return nil }
-            guard let day = date["weekday"] as? String else { return nil }
-            let fo = ForecastDate(yday: yd, weekdayShort: dayshort, weekday: day)
-            forecasts.append(fo)
-        }
-        return forecasts.count > 0 ? forecasts : nil
+        guard let forecastArray = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
+        let forecasts = forecastArray.flatMap{ ForecastWind(json: $0) }
+        return forecasts.count > 0 ? forecasts : nil    // if array has no elements return nil
     }
-    
-    /**
-     Parse the forecast details returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of forecast detail structs.
-     */
-    
-    func forecastDetailFrom(json: [String: Any]?) -> [ForecastDetail]? {
-        
-        guard let json = json else { return nil }
-        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
-        guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
-        guard let forecastday = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
-        
-        var forecasts = [ForecastDetail]()
-        
-        for forecast in forecastday {
-            let keyHL = units == 0 ? "fahrenheit" : "celsius"
-            guard let high = forecast["high"] as? [String: Any] else { return nil }
-            guard let low = forecast["low"] as? [String: Any] else { return nil }
-            
-            guard let hi = high[keyHL] as? String else { return nil }
-            guard let lo = low[keyHL] as? String else { return nil }
-            guard let co = forecast["conditions"] as? String else { return nil }
-            guard let ic = forecast["icon"] as? String else { return nil }
-            guard let po = forecast["pop"] as? Float else { return nil }
-            guard let hu = forecast["avehumidity"] as? Float else { return nil }
-            
-            let fo = ForecastDetail(high: hi, low: lo, conditions: co, icon: ic, pop: po, humidity: hu)
-            forecasts.append(fo)
-        }
-        
-        return forecasts.count > 0 ? forecasts : nil
-    }
-    
-    /**
-     Parse the forecast text returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of forecast text structs.
-     */
-    
-    func forecastPrecipFrom(json: [String: Any]?) -> [ForecastPrecip]? {
-        
-        guard let json = json else { return nil }
-        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
-        guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
-        guard let forecastday = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
-        
-        var forecasts = [ForecastPrecip]()
-        
-        for forecast in forecastday {
-            guard let qpfallday = forecast["qpf_allday"] as? [String: Any] else { return nil }
-            guard let qpfday = forecast["qpf_day"] as? [String: Any] else { return nil }
-            guard let qpfnight = forecast["qpf_night"] as? [String: Any] else { return nil }
-            
-            let keyQ = units == 0 ? "in" : "mm"
-            guard let qa = qpfallday[keyQ] as? Float else { return nil }
-            let qd = qpfday[keyQ] as? Float
-            let qn = qpfnight[keyQ] as? Float
-            
-            guard let snowallday = forecast["snow_allday"] as? [String: Any] else { return nil }
-            guard let snowday = forecast["snow_day"] as? [String: Any] else { return nil }
-            guard let snownight = forecast["snow_night"] as? [String: Any] else { return nil }
-            
-            let keyS = units == 0 ? "in" : "cm"
-            guard let sa = snowallday[keyS] as? Float else { return nil }
-            let sd = snowday[keyS] as? Float
-            let sn = snownight[keyS] as? Float
-            
-            let fo = ForecastPrecip(qpfAllDay: qa, qpfDay: qd, qpfNight: qn, snowAllDay: sa, snowDay: sd, snowNight: sn)
-            forecasts.append(fo)
-        }
-        
-        return forecasts.count > 0 ? forecasts : nil
-    }
-    
-    /**
-     Parse the forecast wind returned as json data from Weather Underground API.
-     - Parameter json: Dictionary representing json data.
-     - Returns: Array of forecast wind structs.
-     */
-    
-    func forecastWindFrom(json: [String: Any]?) -> [ForecastWind]? {
-        
-        guard let json = json else { return nil }
-        guard let forecast = json["forecast"] as? [String: Any] else { return nil }
-        guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
-        guard let forecastday = simpleforecast["forecastday"] as? [[String: Any]] else { return nil }
-        
-        var forecasts = [ForecastWind]()
-        
-        for forecast in forecastday {
-            guard let maxwind = forecast["maxwind"] as? [String: Any] else { return nil }
-            guard let avewind = forecast["avewind"] as? [String: Any] else { return nil }
-            
-            let key = units == 0 ? "mph" : "kph"
-            guard let ms = maxwind[key] as? Float else { return nil }
-            guard let md = maxwind["dir"] as? String else { return nil }
-            guard let mde = maxwind["degrees"] as? Float else { return nil }
-            guard let asp = avewind[key] as? Float else { return nil }
-            guard let ad = avewind["dir"] as? String else { return nil }
-            guard let ade = avewind["degrees"] as? Float else { return nil }
-            
-            let fo = ForecastWind(maxSpeed: ms, maxDir: md, maxDeg: mde, avgSpeed: asp, avgDir: ad, avgDeg: ade)
-            forecasts.append(fo)
-        }
-        
-        return forecasts.count > 0 ? forecasts : nil
-    }
-    
 }
+
 
 // Example
 // -----------------------------------------------------------------------------
@@ -246,22 +265,20 @@ do {
     print("Error is \(error.localizedDescription)")
 }
 
-let parser = ForecastParser()
-
-let forecastText = parser.forecastTextFrom(json: json!)
+let forecastText = ForecastText.forecastTextArray(json: json!)
 
 forecastText?[0].icon
 forecastText?[0].title
 forecastText?[0].text
 forecastText?[0].pop
 
-let forecastDate = parser.forecastDateFrom(json: json!)
+let forecastDate = ForecastDate.forecastDateArray(json: json!)
 
 forecastDate?[0].yday
 forecastDate?[0].weekdayShort
 forecastDate?[0].weekday
 
-let forecastDetail = parser.forecastDetailFrom(json: json!)
+let forecastDetail = ForecastDetail.forecastDetialArray(json: json!)
 
 forecastDetail?[0].high
 forecastDetail?[0].low
@@ -270,7 +287,7 @@ forecastDetail?[0].icon
 forecastDetail?[0].pop
 forecastDetail?[0].humidity
 
-let forecastPrecip = parser.forecastPrecipFrom(json: json!)
+let forecastPrecip = ForecastPrecip.forecastPrecipArray(json: json!)
 
 forecastPrecip?[0].qpfAllDay
 forecastPrecip?[0].qpfDay
@@ -279,7 +296,7 @@ forecastPrecip?[0].snowAllDay
 forecastPrecip?[0].snowDay
 forecastPrecip?[0].snowNight
 
-let forecastWind = parser.forecastWindFrom(json: json!)
+let forecastWind = ForecastWind.forecastWindArray(json: json!)
 
 forecastWind?[0].maxSpeed
 forecastWind?[0].maxDir
@@ -287,3 +304,4 @@ forecastWind?[0].maxDeg
 forecastWind?[0].avgSpeed
 forecastWind?[0].avgDir
 forecastWind?[0].avgDeg
+
