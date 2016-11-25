@@ -34,7 +34,6 @@ extension CurrentLocation {
         guard let observe = json["current_observation"] as? [String: Any] else { return nil }
         guard let location = observe["display_location"] as? [String: Any] else { return nil }
         
-        
         // extract values from dictionaries
         guard let full = location["full"] as? String else { return nil }
         guard let city = location["city"] as? String else { return nil }
