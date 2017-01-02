@@ -1,15 +1,15 @@
 # Weather API
 
-Swift playgrounds for parsing JSON data returned from the [Weather Underground
-API][]. Parsing examples are provided for the following features of the API:
+Xcode projects and Playgrounds that utilize the [Weather API][] provided by the
+[Weather Underground][].
 
-- alerts
-- almanac
-- astronomy
-- conditions
-- currenthurricane
-- forecast10day
-- hourly10day
+**autocomplete-api** searches for locations that match a query string. Results
+are provided by the AutoComplete API.
 
-[Weather Underground API]: http://www.wunderground.com
+**data-api** parses JSON weather data returned from the Weather API.
+
+**wundermap-api** displays the radar image from the Weather API.
+
+[Weather Underground]: https://www.wunderground.com
+[Weather API]: https://www.wunderground.com/weather/api
 
