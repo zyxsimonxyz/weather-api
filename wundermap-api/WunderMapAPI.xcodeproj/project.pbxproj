@@ -22,6 +22,7 @@
 		869BBF441E25EC39003E366C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 869BBF421E25EC39003E366C /* LaunchScreen.storyboard */; };
 		86DB74B51E2BC4CA00E762F9 /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB74B41E2BC4CA00E762F9 /* GeoLocation.swift */; };
 		86DB74B71E2BD38400E762F9 /* BoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB74B61E2BD38400E762F9 /* BoundsViewController.swift */; };
+		86EF74DB1E5D44AE008AECCE /* FetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EF74DA1E5D44AE008AECCE /* FetchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		869BBF451E25EC39003E366C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86DB74B41E2BC4CA00E762F9 /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		86DB74B61E2BD38400E762F9 /* BoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundsViewController.swift; sourceTree = "<group>"; };
+		86EF74DA1E5D44AE008AECCE /* FetchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				8625A8D91E2DC60F00A206B1 /* AnimatedViewController.swift */,
 				8625A8DB1E2DC7EB00A206B1 /* AnimatedOverlay.swift */,
 				8625A8DD1E2DC83400A206B1 /* AnimatedOverlayView.swift */,
+				86EF74DA1E5D44AE008AECCE /* FetchViewController.swift */,
 				869BBF3D1E25EC39003E366C /* Main.storyboard */,
 				861942C41E2C5A6600CDAA83 /* richmond-static.gif */,
 				861942C61E2C63E000CDAA83 /* richmond-anim.gif */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8625A8DE1E2DC83400A206B1 /* AnimatedOverlayView.swift in Sources */,
+				86EF74DB1E5D44AE008AECCE /* FetchViewController.swift in Sources */,
 				86DB74B51E2BC4CA00E762F9 /* GeoLocation.swift in Sources */,
 				8625A8DA1E2DC60F00A206B1 /* AnimatedViewController.swift in Sources */,
 				862389281E2AEB6300D5D62F /* StaticOverlay.swift in Sources */,
